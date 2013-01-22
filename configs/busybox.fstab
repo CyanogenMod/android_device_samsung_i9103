@@ -1,0 +1,24 @@
+# static file system information for automatic busybox mount (only mountable partitions, no boot)
+# note: ramfs is auto extensible
+
+# <file system>         <mount point>     <type>    <options>                      <dump> <pass>
+
+rootfs                  /                 rootfs    ro,relatime                         0      0
+
+/dev/block/mmcblk0p1    /efs              ext4      ro,noatime,errors=continue          0      0  #   12 MB
+/dev/block/mmcblk0p2    /system           ext4      ro,noatime,errors=continue          0      0  #  600 MB
+/dev/block/mmcblk0p3    /cache            ext4      rw,noatime,errors=continue          0      0  #  312 MB
+/dev/block/mmcblk0p4    /mnt/emmc         vfat      rw,noatime,errors=continue          0      0  # 3841 MB
+#/dev/block/mmcblk0p5   misc                                                                      #    2 MB
+/dev/block/mmcblk0p6    /data             ext4      rw,nosuid,noatime,errors=continue   0      0  # 2048 MB
+#/dev/block/mmcblk0p7   modem                                                                     #   16 MB
+#/dev/block/mmcblk0p8   recovery                                                                  #    5 MB
+#/dev/block/mmcblk0p9   boot                                                                      #    8 MB
+#/dev/block/mmcblk0p10  kpanic                                                                    #    8 MB
+/dev/block/mmcblk0p11   /preload          ext4      rw,noatime,errors=continue          0      0  #  512 MB
+
+ramfs                   /tmp              ramfs     rw,relatime,size=512k               0      0
+
+/dev/block/mmcblk1p1    /mnt/sdcard       vfat      rw,noatime,errors=continue          0      0
+/dev/block/mmcblk1p2    /sd-ext           ext4      rw,noatime,errors=continue          0      0
+

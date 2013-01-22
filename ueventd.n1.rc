@@ -1,0 +1,37 @@
+/dev/nvos	0666	system	system
+/dev/nvrm	0666	system	system
+/dev/knvmap	0660	system	system
+/dev/nvmap	0666	system	system
+/dev/s5k4ecgx	0660	media	camera
+/dev/s5k6aafx	0660	media	camera
+/dev/tegra_camera	0660	media	camera
+/dev/tegra_avp	0660	media	media
+/dev/tegra_rpc	0660	media	media
+/dev/tegra_sema	0660	media	media
+/dev/tegra_mediaserver	0660	media	media
+/dev/tegra_dc*	0660	system	system
+/dev/ttyACM*	0660	radio	system
+/dev/ttyACM3	0660	radio	log
+/dev/ion	0666	system	system
+/dev/umts*	0666	system	radio
+/dev/link_pm	0666	system	radio
+/dev/block/mmcblk0p5	0660	system	radio
+/dev/block/mmcblk0p7	0660	system	radio
+/dev/usb_mtp_gadget	0660	system	system
+
+# for MPL
+/dev/mpu	0660	system	system
+/dev/mpuirq	0660	system	system
+
+# for AKM8975
+/dev/akm8975	0660	system	system
+
+# for GPS
+/dev/ttyHS0	0660	root	system
+
+# for FM Radio
+/dev/fmradio	0660	system	audio
+
+# for usb printer
+/dev/bus/usb/*	0660	system	usb
+/dev/usb/lp*	0660	system	usb

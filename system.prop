@@ -1,0 +1,98 @@
+# RIL
+rild.libpath=/system/lib/libsec-ril.so
+rild.libargs=-d /dev/ttyS0
+ro.ril.enable.3g.prefix=1
+ro.ril.enable.a52=1
+ro.ril.enable.a53=1
+ro.ril.enable.dtm=1
+ro.ril.enable.sdr=1
+ro.ril.enable.gea3=1
+ro.ril.enable.managed.roaming=1
+ro.ril.gprsclass=12
+ro.ril.hsdpa.category=14
+ro.ril.hsupa.category=6
+ro.ril.hsxpa=2
+ro.ril.hep=1
+ro.ril.def.agps.mode=2
+ro.ril.def.agps.feature=1
+ro.ril.ecclist=104,105,107,112,911
+
+ro.ril.enable.amr.wideband=1
+persist.cust.tel.eons=1
+ro.config.hw_fast_dormancy=1
+ro.ril.htcmaskw1.bitmask=4294967295
+ro.ril.htcmaskw1=14449
+ro.ril.enable.fd.plmn.prefix=23402,23410,23411
+
+# Forbid format of these partitions in mount menu
+ro.cwm.forbid_format=/misc,/radio,/recovery,/efs
+
+# Net Speed Tweaks
+net.tcp.buffersize.default=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.wifi=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.umts=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.gprs=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.edge=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.hspa=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.hsdpa=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.lte=524288,1048576,2097152,524288,1048576,2097152
+net.tcp.buffersize.evdo_b=6144,87380,1048576,6144,87380,1048576
+
+# Google DNS
+net.ppp0.dns1=8.8.8.8
+net.ppp0.dns2=8.8.4.4
+net.dns1=8.8.8.8
+net.dns2=8.8.4.4  
+
+# No Delay In Making Call
+ro.telephony.call_ring.delay=0
+ring.delay=0
+
+# Render UI with GPU
+debug.sf.hw=1
+
+# Battery Tweaks
+pm.sleep_mode=1
+ro.ril.disable.power.collapse=0
+ro.ril.fast.dormancy.rule=0
+
+# Proximity Tweaks
+ro.lge.proximity.delay=25
+mot.proximity.delay=25
+
+# Frees More RAM
+persist.sys.purgeable_assets=1
+
+# Fast Reboot
+persist.sys.shutdown.mode=hibernate
+ro.config.hw_quickpoweron=true
+
+# Better Responsiveness & Speed
+windowsmgr.max_events_per_sec=90
+ro.max.fling_velocity=12000
+ro.min.fling_velocity=8000
+
+# Increase overall touch responsiveness
+debug.performance.tuning=1
+video.accelerate.hw=1
+
+# Lock App In Memory
+sys.keep_app_1=com.cyanogenmod.trebuchet
+
+# Other Tweaks
+ro.media.dec.aud.wma.enabled=1
+ro.media.dec.vid.wmv.enabled=1
+ro.mot.eri.losalert.delay=1000
+ro.config.hwfeature_wakeupkey=0
+vm.stat_interval=1
+
+# Enable Surface Dithering Which Will Raise Image Quality At The Cost Of Performances - 1=ON;0=OFF
+persist.sys.use_dithering=0
+
+# Improves Camera & Video Results
+ro.media.panorama.defres=3264x1840
+ro.media.panorama.frameres=1280x720
+ro.camcorder.videoModes=true
+
+# Disable strict mode (red border)
+persist.sys.strictmode.disable=1

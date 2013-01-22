@@ -1,0 +1,40 @@
+# Copyright (c) 2010
+#	Thorsten Glaser <t.glaser@tarent.de>
+# This file is provided under the same terms as mksh.
+#-
+# Minimal /system/etc/mkshrc for Android
+
+: ${TERM:=vt100} ${HOME:=/data} ${MKSH:=/system/bin/sh} ${HOSTNAME:=android}
+: ${SHELL:=$MKSH} ${USER:=$(typeset x=$(id); x=${x#*\(}; print -r -- ${x%%\)*})}
+if (( USER_ID )); then PS1='$'; else PS1='#'; fi
+function precmd {
+	typeset e=$?
+
+	(( e )) && print -n "$e|"
+}
+PS1='$(precmd)$USER@$HOSTNAME:${PWD:-?} '"$PS1 "
+export HOME HOSTNAME MKSH SHELL TERM USER
+
+alias l='busybox ls --color=auto'
+alias ls='busybox ls --color=auto'
+alias la='busybox ls -a --color=auto'
+alias ll='busybox ls -l --color=auto'
+alias lo='busybox ls -al --color=auto'
+
+alias sysro='busybox mount -o remount,ro /system'
+alias sysrw='busybox mount -o remount,rw /system'
+
+alias rootro='busybox mount -o remount,ro /'
+alias rootrw='busybox mount -o remount,rw /'
+
+alias ifconfig='busybox ifconfig'
+alias findinfiles='find . -type f | xargs grep -insI '
+
+for p in ~/.bin; do
+	[[ -d $p/. ]] || continue
+	[[ :$PATH: = *:$p:* ]] || PATH=$p:$PATH
+done
+
+unset p
+
+: place customisations above this line
