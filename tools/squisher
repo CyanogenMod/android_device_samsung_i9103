@@ -42,7 +42,7 @@ if [ ! -f "$OTAPACKAGE" ]; then
 	exit 1
 fi
 
-OPTICHARGER=$ANDROID_BUILD_TOP/vendor/cm/tools/opticharger
+OPTICHARGER=$DEVICE_TOP/tools/opticharger
 QUIET=-q
 DELETE_BINS="applypatch applypatch_static check_prereq recovery updater"
 
@@ -92,11 +92,13 @@ unzip $QUIET $OTAPACKAGE
 echo
 cd $REPACK/ota/system/framework
 if [ "$1" != "fast" ]; then
-	$OPTICHARGER framework-res.apk
-	cd $REPACK/ota/system/app
-	find ./ -name \*.apk | $XARGS $OPTICHARGER
+    if [ -x $OPTICHARGER ]; then
+        $OPTICHARGER framework-res.apk
+        cd $REPACK/ota/system/app
+        find ./ -name \*.apk | $XARGS $OPTICHARGER
+    fi
 else
-	echo "skipping apk optimization"
+    echo "skipping apk optimization"
 fi
 )
 
@@ -136,8 +138,8 @@ $SED -i \
 	$REPACK/ota/system/build.prop
 
 # Include device specific script
-if [ -f $DEVICE_TOP/releasetools/squisher.sh ]; then
-	. $DEVICE_TOP/releasetools/squisher.sh
+if [ -f $DEVICE_TOP/tools/squisher.sh ]; then
+	. $DEVICE_TOP/tools/squisher.sh
 fi
 
 # Delete unnecessary binaries

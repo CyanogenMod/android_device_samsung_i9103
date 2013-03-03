@@ -51,9 +51,6 @@ BOARD_KERNEL_CMDLINE := mem=511M@0M secmem=1M@511M mem=512M@512M vmalloc=256M fo
 # kernel modules location (busybox)
 KERNEL_MODULES_DIR := /system/lib/modules
 
-# required to remove kernel modules, recovery size is limited to 5MB
-BOARD_RECOVERY_RAMDISK_EXTRA_SCRIPT := $(LOCAL_PATH)/releasetools/recovery_ramdisk.sh
-
 # Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 8388608
 #BOARD_RECOVERYIMAGE_PARTITION_SIZE := 5242880
@@ -132,7 +129,7 @@ BOARD_LEGACY_NL80211_STA_EVENTS := true
 BOARD_HAVE_SAMSUNG_WIFI         := true
 
 # Custom squisher, final step script
-TARGET_CUSTOM_RELEASETOOL := device/samsung/i9103/squisher
+TARGET_CUSTOM_RELEASETOOL := device/samsung/i9103/tools/squisher
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := galaxyr,i9103,GT-I9103,GTI9103
