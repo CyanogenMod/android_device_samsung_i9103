@@ -8,7 +8,7 @@ rootfs                  /                 rootfs    ro,relatime                 
 /dev/block/mmcblk0p1    /efs              ext4      ro,noatime,errors=continue          0      0  #   12 MB
 /dev/block/mmcblk0p2    /system           ext4      ro,noatime,errors=continue          0      0  #  600 MB
 /dev/block/mmcblk0p3    /cache            ext4      rw,noatime,errors=continue          0      0  #  312 MB
-/dev/block/mmcblk0p4    /mnt/emmc         vfat      rw,noatime,errors=continue          0      0  # 3841 MB
+/dev/block/mmcblk0p4    /storage/sdcard0  vfat      rw,noatime,errors=continue          0      0  # 3841 MB
 #/dev/block/mmcblk0p5   misc                                                                      #    2 MB
 /dev/block/mmcblk0p6    /data             ext4      rw,nosuid,noatime,errors=continue   0      0  # 2048 MB
 #/dev/block/mmcblk0p7   modem                                                                     #   16 MB
@@ -19,6 +19,6 @@ rootfs                  /                 rootfs    ro,relatime                 
 
 ramfs                   /tmp              ramfs     rw,relatime,size=512k               0      0
 
-/dev/block/mmcblk1p1    /mnt/sdcard       vfat      rw,noatime,errors=continue          0      0
+/dev/block/mmcblk1p1    /storage/sdcard1  vfat      rw,noatime,errors=continue          0      0
 /dev/block/mmcblk1p2    /sd-ext           ext4      rw,noatime,errors=continue          0      0
 
