@@ -39,6 +39,7 @@ PRODUCT_PACKAGES += \
 
 # Init-scripts
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/fstab.n1:root/fstab.n1 \
     $(LOCAL_PATH)/lpm.rc:root/lpm.rc \
     $(LOCAL_PATH)/init.n1.rc:root/init.n1.rc \
     $(LOCAL_PATH)/init.n1.usb.rc:root/init.n1.usb.rc \
@@ -159,10 +160,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
     dalvik.vm.checkjni=false
-
-# Set default USB interface
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise

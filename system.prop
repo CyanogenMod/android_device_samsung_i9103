@@ -63,10 +63,6 @@ mot.proximity.delay=25
 # Frees More RAM
 persist.sys.purgeable_assets=1
 
-# Fast Reboot
-persist.sys.shutdown.mode=hibernate
-ro.config.hw_quickpoweron=true
-
 # Better Responsiveness & Speed
 windowsmgr.max_events_per_sec=90
 ro.max.fling_velocity=12000

@@ -26,31 +26,16 @@ on early-init
     symlink /storage/usbdisk0 /mnt/usbDisk
 
 on fs
-    mount ext4 /dev/block/platform/sdhci-tegra.3/by-num/p2 /system wait ro
+    mount_all /fstab.n1
 
-    exec sfsck /dev/block/platform/sdhci-tegra.3/by-num/p1 ext4
-    mount ext4 /dev/block/platform/sdhci-tegra.3/by-num/p1 /efs nosuid nodev noatime wait
     mkdir /efs/bluetooth
     mkdir /efs/wifi
     chown radio system /efs/bluetooth
     chown radio system /efs/wifi
     chmod 0775 /efs/bluetooth
     chmod 0775 /efs/wifi
-    
-    # Device Encryption by Security R&D Group.
-    exec set_crypt_meta_info /dev/block/platform/sdhci-tegra.3/by-num/p1 /efs
-    exec sfsck /dev/block/platform/sdhci-tegra.3/by-num/p6 ext4 encryptable
-    mount ext4 /dev/block/platform/sdhci-tegra.3/by-num/p6 /data wait noatime nosuid nodev journal_async_commit,nodelalloc,errors=panic
 
-    mount ext4 /dev/block/platform/sdhci-tegra.3/by-num/p3 /cache wait noatime nosuid nodev journal_async_commit,nodelalloc,errors=panic
-
-    # For symbolic_link
-    mount ext4 /dev/block/mmcblk0p11 /preload nosuid nodev noatime wait ro
     mkdir /mnt/modem 0770 radio system
-	
-    # MTP Device permission.
-    chmod 0660 /dev/usb_mtp_gadget
-    chown system system /dev/usb_mtp_gadget
 
 on boot
     chown system system /efs/wifi/.mac.info
