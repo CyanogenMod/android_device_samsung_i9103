@@ -32,5 +32,8 @@ PRODUCT_NAME := cm_i9103
 PRODUCT_BRAND := Samsung
 PRODUCT_MODEL := GT-I9103
 
-#Set build fingerprint / ID / Prduct Name ect.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=GT-I9103 TARGET_DEVICE=GT-I9103 BUILD_FINGERPRINT=samsung/GT-I9103/GT-I9103:4.2.1/JRO03C/XXLPQ:eng/Adam77Root-test-keys PRIVATE_BUILD_DESC="GT-I9103-eng 4.2.1 JRO03C XXLPQ Adam77Root-test-keys"
+# Set build fingerprint / ID / Prduct Name ect.
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=GT-I9103 TARGET_DEVICE=GT-I9103
+
+# Allow ADB
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.adb.secure=0 ro.debuggable=1 persist.sys.usb.config=mass_storage,adb persist.sys.root_access=3 persist.service.adb.enable=1
