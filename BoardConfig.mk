@@ -128,8 +128,8 @@ WIFI_BAND                       := 802_11_ABG
 BOARD_LEGACY_NL80211_STA_EVENTS := true
 BOARD_HAVE_SAMSUNG_WIFI         := true
 
-# Custom squisher, final step script
-TARGET_CUSTOM_RELEASETOOL := device/samsung/i9103/tools/squisher
+# Custom squisher, optional final step script
+TARGET_CUSTOM_RELEASE_TOOL := device/samsung/i9103/tools/squisher
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := galaxyr,i9103,GT-I9103,GTI9103
