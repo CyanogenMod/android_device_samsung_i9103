@@ -53,8 +53,7 @@ KERNEL_MODULES_DIR := /system/lib/modules
 
 # Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 8388608
-#BOARD_RECOVERYIMAGE_PARTITION_SIZE := 5242880
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 6000000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 5242880 # 10x 512K blocks !
 BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 629145600
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2147483648
 BOARD_FLASH_BLOCK_SIZE := 4096
@@ -128,8 +127,11 @@ WIFI_BAND                       := 802_11_ABG
 BOARD_LEGACY_NL80211_STA_EVENTS := true
 BOARD_HAVE_SAMSUNG_WIFI         := true
 
-# Custom squisher, optional final step script
-TARGET_CUSTOM_RELEASE_TOOL := device/samsung/i9103/tools/squisher
+# Custom squisher, optional final step script (disabled in cm10.1)
+# TARGET_CUSTOM_RELEASETOOL := device/samsung/i9103/tools/squisher
+
+# Required to build a recovery image of 5MB max
+BOARD_CUSTOM_BOOTIMG_MK := device/samsung/i9103/tools/bootimg.mk
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := galaxyr,i9103,GT-I9103,GTI9103
