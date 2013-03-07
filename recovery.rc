@@ -6,7 +6,7 @@ on init
     export LD_LIBRARY_PATH .:/sbin:/vendor/lib:/system/lib
     export ANDROID_ROOT /system
     export ANDROID_DATA /data
-    export EXTERNAL_STORAGE /sdcard
+    export EXTERNAL_STORAGE /external_sd
 
     mkdir /sdcard
     mkdir /system
@@ -14,12 +14,12 @@ on init
     mkdir /cache
     mkdir /efs
     mkdir /tmp
-    mkdir /emmc
+    mkdir /external_sd
 
     # prepare new mount points compat.
     mkdir /storage
-    # symlink /emmc   /storage/sdcard0
-    # symlink /sdcard /storage/sdcard1
+    symlink /external_sd /storage/sdcard0
+    symlink /sdcard /storage/sdcard1
 
     symlink /system/etc /etc
 
@@ -77,6 +77,8 @@ on property:ro.debuggable=1
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+    stop adbd
     setprop service.adb.root 1
+    sleep 1
     start adbd
     write /sys/class/android_usb/android0/enable 1
