@@ -35,4 +35,4 @@ PRODUCT_MODEL := GT-I9103
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=GT-I9103 TARGET_DEVICE=GT-I9103
 
 # Allow ADB (to access dev settings)
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.adb.secure=0 ro.debuggable=1 persist.sys.usb.config=mass_storage,adb persist.sys.root_access=3 persist.service.adb.enable=1
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.debuggable=1 persist.sys.usb.config=mtp persist.service.adb.enable=1
