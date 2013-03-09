@@ -79,6 +79,5 @@ on property:ro.debuggable=1
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
     stop adbd
     setprop service.adb.root 1
-    sleep 1
     start adbd
     write /sys/class/android_usb/android0/enable 1
