@@ -338,42 +338,45 @@ PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libtvoutservice.so:system/lib/libtvoutservice.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libtvout_jni.so:system/lib/libtvout_jni.so
 
-# IDC files
-PRODUCT_COPY_FILES += \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/idc/qwerty.idc:system/usr/idc/qwerty.idc \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/idc/qwerty2.idc:system/usr/idc/qwerty2.idc
+# IDC files (already in build)
+#PRODUCT_COPY_FILES += \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/idc/qwerty.idc:system/usr/idc/qwerty.idc \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/idc/qwerty2.idc:system/usr/idc/qwerty2.idc
 
-# Keychars
-PRODUCT_COPY_FILES += \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keychars/Generic.kcm:system/usr/keychars/Generic.kcm \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keychars/Virtual.kcm:system/usr/keychars/Virtual.kcm
+# Keychars (already in build)
+#PRODUCT_COPY_FILES += \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keychars/Generic.kcm:system/usr/keychars/Generic.kcm \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keychars/Virtual.kcm:system/usr/keychars/Virtual.kcm
 
 # Keylayout
 PRODUCT_COPY_FILES += \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Bluetooth_00_06_66_42.kl:system/usr/keylayout/Bluetooth_00_06_66_42.kl \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/sec_jack.kl:system/usr/keylayout/sec_jack.kl \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/sec_key.kl:system/usr/keylayout/sec_key.kl \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_04e8_Product_7021.kl:system/usr/keylayout/Vendor_04e8_Product_7021.kl \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_05ac_Product_0239.kl:system/usr/keylayout/Vendor_05ac_Product_0239.kl \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_22b8_Product_093d.kl:system/usr/keylayout/Vendor_22b8_Product_093d.kl \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_044f_Product_d007.kl:system/usr/keylayout/Vendor_044f_Product_d007.kl \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_028e.kl \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_045e_Product_0719.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_046d_Product_c21d.kl:system/usr/keylayout/Vendor_046d_Product_c21d.kl \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_046d_Product_c21f.kl:system/usr/keylayout/Vendor_046d_Product_c21f.kl \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_046d_Product_c216.kl:system/usr/keylayout/Vendor_046d_Product_c216.kl \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_046d_Product_c294.kl:system/usr/keylayout/Vendor_046d_Product_c294.kl \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_046d_Product_c299.kl:system/usr/keylayout/Vendor_046d_Product_c299.kl \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_046d_Product_c532.kl:system/usr/keylayout/Vendor_046d_Product_c532.kl \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_054c_Product_0268.kl:system/usr/keylayout/Vendor_054c_Product_0268.kl \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_057e_Product_0306.kl:system/usr/keylayout/Vendor_057e_Product_0306.kl \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_2378_Product_100a.kl:system/usr/keylayout/Vendor_2378_Product_100a.kl
+
+# Keylayout (already defined in build)
+#PRODUCT_COPY_FILES += \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_05ac_Product_0239.kl:system/usr/keylayout/Vendor_05ac_Product_0239.kl \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_22b8_Product_093d.kl:system/usr/keylayout/Vendor_22b8_Product_093d.kl \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_028e.kl \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_045e_Product_0719.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_046d_Product_c216.kl:system/usr/keylayout/Vendor_046d_Product_c216.kl \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_046d_Product_c294.kl:system/usr/keylayout/Vendor_046d_Product_c294.kl \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_046d_Product_c299.kl:system/usr/keylayout/Vendor_046d_Product_c299.kl \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_046d_Product_c532.kl:system/usr/keylayout/Vendor_046d_Product_c532.kl \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_054c_Product_0268.kl:system/usr/keylayout/Vendor_054c_Product_0268.kl \\
 
 # Other files
 PRODUCT_COPY_FILES += \\
