@@ -87,7 +87,7 @@ a texture and possibly other code, so just DON'T USE THIS QUIRK.
 <!--	<MediaCodec name="OMX.Nvidia.bsac.decoder" type="" /> -->
 	<MediaCodec name="OMX.Nvidia.wav.decoder" type="audio/wav" />
 <!--	<MediaCodec name="OMX.Nvidia.vorbis.decoder" type="audio/vorbis" /> -->
-	<MediaCodec name="OMX.Nvidia.amr.decoder" type="audio/3gpp" />
+<!--	<MediaCodec name="OMX.Nvidia.amr.decoder" type="audio/3gpp" /> -->
 	<MediaCodec name="OMX.Nvidia.amrwb.decoder" type="audio/amr-wb" />
 <!--	<MediaCodec name="OMX.Nvidia.bypass.decoder" type="" /> -->
 
