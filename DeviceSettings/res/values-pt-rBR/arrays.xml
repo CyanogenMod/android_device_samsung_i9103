@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string-array name="mdnie_scenario_entries">
-      <item>Vídeo (Padrão)</item>
+      <item>IU (Padrão)</item>
+      <item>Vídeo</item>
       <item>Vídeo Quente</item>
       <item>Vídeo Frio</item>
       <item>Câmera</item>
-      <item>IU</item>
       <item>Navegação</item>
       <item>Galeria</item>
       <item>VT</item>

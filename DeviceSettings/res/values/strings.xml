@@ -8,8 +8,6 @@
     <string name="mdnie_scenario_summary_head">Set the mDNIe Scenario</string>
     <string name="mdnie_mode_title_head">Mode</string>
     <string name="mdnie_mode_summary_head">Set the mDNIe Mode</string>
-    <string name="mdnie_negative_title_head">Negative Mode</string>
-    <string name="mdnie_negative_summary_head">Enable/Disable inverted colors</string>
     <string name="mdnie_outdoor_title_head">Outdoor Mode</string>
     <string name="mdnie_outdoor_summary_head">Enable/Disable outdoor mode</string>
 

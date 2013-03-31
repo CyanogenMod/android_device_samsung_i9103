@@ -16,11 +16,11 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="mdnie_scenario_entries">
-        <item>Video (standaard)</item>
+        <item>Uiterlijk (standaard)</item>
+        <item>Video</item>
         <item>Video (warm)</item>
         <item>Video (koud)</item>
         <item>Camera</item>
-        <item>Uiterlijk</item>
         <item>Navigatie</item>
         <item>Galerij</item>
         <item>VT</item>

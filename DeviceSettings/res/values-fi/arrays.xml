@@ -1,11 +1,11 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string-array name="mdnie_scenario_entries">
-        <item>Video (Oletus)</item>
+        <item>Käyttöliittymä (Oletus)</item>
+        <item>Video</item>
         <item>Video(Lämmin)</item>
         <item>Video(Kylmä)</item>
         <item>Kamera</item>
-        <item>Käyttöliittymä</item>
         <item>Navigointi</item>
         <item>Galleria</item>
         <item>VT</item>

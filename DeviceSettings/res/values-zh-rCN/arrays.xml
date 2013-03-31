@@ -1,11 +1,11 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string-array name="mdnie_scenario_entries">
-        <item>影片 (默认)</item>
+        <item>界面 (默认)</item>
+        <item>影片</item>
         <item>影片 (温)</item>
         <item>影片 (冷)</item>
         <item>照相</item>
-        <item>界面</item>
         <item>导航</item>
         <item>图库</item>
         <item>VT</item>

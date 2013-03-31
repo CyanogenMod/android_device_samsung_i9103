@@ -1,10 +1,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="mdnie_scenario_entries">
-        <item>Vídeo (por defecto)</item>
+        <item>UI (por defecto)</item>
+        <item>Vídeo</item>
         <item>Vídeo cálido</item>
         <item>Vídeo frío</item>
         <item>Cámara</item>
-        <item>UI</item>
         <item>Navegación</item>
         <item>Galería</item>
         <item>VT</item>
