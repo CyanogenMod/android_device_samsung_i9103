@@ -30,7 +30,7 @@ adb pull /sbin/cbd $DEVICEBASE/sbin/cbd
 
 # HAL
 mkdir -p $DEVICEBASE/system/lib/hw/
-adb pull /system/lib/hw/vendor-camera.tegra.so $DEVICEBASE/system/lib/hw/
+adb pull /system/lib/hw/camera.tegra.so $DEVICEBASE/system/lib/hw/
 adb pull /system/lib/hw/gps.tegra.so $DEVICEBASE/system/lib/hw/
 adb pull /system/lib/hw/gralloc.tegra.so $DEVICEBASE/system/lib/hw/
 adb pull /system/lib/hw/hwcomposer.tegra.so $DEVICEBASE/system/lib/hw/
@@ -117,29 +117,6 @@ adb pull /system/lib/libnvwsi.so $DEVICEBASE/system/lib/
 adb pull /system/etc/firmware/ $DEVICEBASE/system/etc/firmware/
 
 # OMX
-adb pull /system/lib/libsomxcmn.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsomxcore.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsomxaacd.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsomxaace.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsomxac3d.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsomxamrd.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsomxflacd.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsomxmp3d.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsomxmp43d.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsomxsr263d.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsomxwmad.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsomxwmv7d.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsomxwmv8d.so $DEVICEBASE/system/lib/
-
-adb pull /system/lib/libsavsac.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsavscmn.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsavsff.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsavsmeta.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsavsvc.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsAMRNB.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsAMRWB.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsthmb.so $DEVICEBASE/system/lib/
-
 adb pull /system/lib/libstagefrighthw.so $DEVICEBASE/system/lib/
 
 # Camera
@@ -192,7 +169,7 @@ PRODUCT_COPY_FILES += \\
 
 # HAL
 PRODUCT_COPY_FILES += \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/hw/vendor-camera.tegra.so:system/lib/hw/vendor-camera.tegra.so \\
+    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/hw/camera.tegra.so:system/lib/hw/camera.tegra.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/hw/gps.tegra.so:system/lib/hw/gps.tegra.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/hw/gralloc.tegra.so:system/lib/hw/gralloc.tegra.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/hw/hwcomposer.tegra.so:system/lib/hw/hwcomposer.tegra.so \\
@@ -299,31 +276,6 @@ PRODUCT_COPY_FILES += \\
 
 # OMX
 PRODUCT_COPY_FILES += \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsomxcmn.so:system/lib/libsomxcmn.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsomxcore.so:system/lib/libsomxcore.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsomxaacd.so:system/lib/libsomxaacd.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsomxaace.so:system/lib/libsomxaace.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsomxac3d.so:system/lib/libsomxac3d.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsomxamrd.so:system/lib/libsomxamrd.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsomxflacd.so:system/lib/libsomxflacd.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsomxmp3d.so:system/lib/libsomxmp3d.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsomxmp43d.so:system/lib/libsomxmp43d.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsomxsr263d.so:system/lib/libsomxsr263d.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsomxwmad.so:system/lib/libsomxwmad.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsomxwmv7d.so:system/lib/libsomxwmv7d.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsomxwmv8d.so:system/lib/libsomxwmv8d.so
-
-PRODUCT_COPY_FILES += \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsavsac.so:system/lib/libsavsac.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsavscmn.so:system/lib/libsavscmn.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsavsff.so:system/lib/libsavsff.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsavsmeta.so:system/lib/libsavsmeta.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsavsvc.so:system/lib/libsavsvc.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsAMRNB.so:system/lib/libsAMRNB.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsAMRWB.so:system/lib/libsAMRWB.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsthmb.so:system/lib/libsthmb.so
-
-PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libstagefrighthw.so:system/lib/libstagefrighthw.so
 
 # Camera
@@ -398,7 +350,7 @@ EOF
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-USE_CAMERA_STUB := true
+USE_CAMERA_STUB := false
 BOARD_USES_GENERIC_AUDIO := false
 EOF
 

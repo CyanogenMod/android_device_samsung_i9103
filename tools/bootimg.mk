@@ -13,6 +13,7 @@ $(recovery_uncompressed_ramdisk): $(MINIGZIP) $(TARGET_RECOVERY_ROOT_TIMESTAMP)
 	@echo -e ${CL_CYN}"----- Making uncompressed recovery ramdisk ------"${CL_RST}
 	@rm -f $(TARGET_RECOVERY_ROOT_OUT)/sbin/cbd
 	@rm -f $(TARGET_RECOVERY_ROOT_OUT)/*.goldfish.rc
+	@rm -f $(TARGET_RECOVERY_ROOT_OUT)/lpm.rc
 	@rm -f $(TARGET_RECOVERY_ROOT_OUT)/charger
 	@rm -rf $(TARGET_RECOVERY_ROOT_OUT)/res/images/charger/
 	$(MKBOOTFS) $(TARGET_RECOVERY_ROOT_OUT) > $@
