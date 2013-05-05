@@ -62,7 +62,7 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 BOARD_HAS_LARGE_FILESYSTEM := true
 
 TARGET_KERNEL_SOURCE := kernel/samsung/n1
-TARGET_KERNEL_CONFIG := tegra_n1_jb_defconfig
+TARGET_KERNEL_CONFIG := cyanogenmod_i9103_defconfig
 
 TARGET_NO_KERNEL := false
 TARGET_NO_RECOVERY := false
