@@ -17,7 +17,7 @@
 /dev/link_pm	0666	system	radio
 /dev/block/mmcblk0p5	0660	system	radio
 /dev/block/mmcblk0p7	0660	system	radio
-/dev/usb_mtp_gadget	0660	system	system
+/dev/mtp_usb	0660	system	system
 
 # for MPL
 /dev/mpu	0660	system	system
