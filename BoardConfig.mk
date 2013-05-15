@@ -13,6 +13,7 @@
 # limitations under the License.
 
 LOCAL_PATH := device/samsung/i9103
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/i9103/overlay/include
 
 # CPU
 TARGET_CPU_ABI := armeabi-v7a
