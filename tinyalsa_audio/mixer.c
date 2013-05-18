@@ -762,6 +762,7 @@ int tinyalsa_mixer_set_route(struct tinyalsa_mixer *mixer,
 		goto error_mixer;
 	}
 
+#if 0 /* Our implementation disables routes after pcm_close(). */
 	// No need to disable and enable the same route
 	if(mixer_device == mixer_io->device_current)
 		goto exit_mixer;
@@ -773,6 +774,7 @@ int tinyalsa_mixer_set_route(struct tinyalsa_mixer *mixer,
 			goto error_mixer;
 		}
 	}
+#endif
 
 	rc = tinyalsa_mixer_set_route_list(mixer, mixer_device->enable);
 	if(rc < 0) {
@@ -1031,6 +1033,7 @@ int tinyalsa_mixer_set_state(struct tinyalsa_mixer *mixer,
 		return -1;
 	}
 
+#if 0 /* Our implementation disables routes after pcm_close(). */
 	if(!state && mixer_io->device_current != NULL &&
 		mixer_io->device_current->disable != NULL) {
 		rc = tinyalsa_mixer_set_route_list(mixer, mixer_io->device_current->disable);
@@ -1039,6 +1042,7 @@ int tinyalsa_mixer_set_state(struct tinyalsa_mixer *mixer,
 			goto error_mixer;
 		}
 	}
+#endif
 
 	mixer_device = tinyalsa_mixer_get_device(mixer_io, default_device);
 	if(mixer_device == NULL) {
@@ -1052,12 +1056,14 @@ int tinyalsa_mixer_set_state(struct tinyalsa_mixer *mixer,
 			ALOGE("Unable to enable default device controls");
 			goto error_mixer;
 		}
+#if 0 /* Our implementation disables routes after pcm_close(). */
 	} else if(!state && mixer_device != NULL) {
 		rc = tinyalsa_mixer_set_route_list(mixer, mixer_device->disable);
 		if(rc < 0) {
 			ALOGE("Unable to disable default device controls");
 			goto error_mixer;
 		}
+#endif
 	}
 
 	mixer_io->device_current = NULL;

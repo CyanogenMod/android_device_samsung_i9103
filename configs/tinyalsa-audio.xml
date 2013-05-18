@@ -1,0 +1,101 @@
+<tinyalsa-audio device="Galaxy R">
+	<output card="0" device="0"
+		rate="44100" channels="2" format="PCM_16"
+		period_size="1024" period_count="4">
+
+		<device type="default">
+			<path type="enable">
+				<ctrl name="Playback Path" value="OFF" />
+			</path>
+		</device>
+		<device type="earpiece">
+			<path type="enable">
+				<ctrl name="Playback Path" value="RCV" />
+			</path>
+		</device>
+		<device type="speaker">
+			<path type="enable">
+				<ctrl name="Playback Path" value="SPK" />
+			</path>
+		</device>
+		<device type="wired-headphone">
+			<path type="enable">
+				<ctrl name="Playback Path" value="HP_NO_MIC" />
+			</path>
+		</device>
+		<device type="wired-headset">
+			<path type="enable">
+				<ctrl name="Playback Path" value="HP" />
+			</path>
+		</device>
+		<device type="bt-sco">
+			<path type="enable">
+				<ctrl name="Playback Path" value="BT" />
+			</path>
+		</device>
+		<device type="aux-digital">
+			<path type="enable">
+				<ctrl name="Playback Path" value="LINEOUT" />
+			</path>
+		</device>
+	</output>
+
+	<input card="0" device="0"
+		rate="44100" channels="2" format="PCM_16"
+		period_size="1024" period_count="4">
+
+		<device type="builtin-mic">
+			<path type="enable">
+				<ctrl name="Capture MIC Path" value="Main Mic" />
+			</path>
+		</device>
+		<device type="back-mic">
+			<path type="enable">
+				<ctrl name="Capture MIC Path" value="Sub Mic" />
+			</path>
+		</device>
+		<device type="wired-headset">
+			<path type="enable">
+				<ctrl name="Capture MIC Path" value="Hands Free Mic" />
+			</path>
+		</device>
+		<device type="bt-sco-headset">
+			<path type="enable">
+				<ctrl name="Capture MIC Path" value="BT Sco Mic" />
+			</path>
+		</device>
+		<device type="voice-call">
+			<path type="enable">
+				<ctrl name="Capture MIC Path" value="Voice" />
+			</path>
+		</device>
+	</input>
+
+	<modem card="0" device="0">
+		<device type="earpiece">
+			<path type="enable">
+				<ctrl name="Voice Call Path" value="RCV" />
+			</path>
+		</device>
+		<device type="speaker">
+			<path type="enable">
+				<ctrl name="Voice Call Path" value="SPK" />
+			</path>
+		</device>
+		<device type="wired-headphone">
+			<path type="enable">
+				<ctrl name="Voice Call Path" value="HP_NO_MIC" />>
+			</path>
+		</device>
+		<device type="wired-headset">
+			<path type="enable">
+				<ctrl name="Voice Call Path" value="HP" />
+			</path>
+		</device>
+		<device type="bt-sco-headset">
+			<path type="enable">
+				<ctrl name="Voice Call Path" value="BT" />
+			</path>
+		</device>
+	</modem>
+</tinyalsa-audio>

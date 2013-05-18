@@ -42,30 +42,10 @@ LOCAL_SHARED_LIBRARIES := \
 	libaudioutils \
 	libdl
 
-ifeq ($(strip $(BOARD_USE_YAMAHA_MC1N2_AUDIO)),true)
-	LOCAL_CFLAGS += -DYAMAHA_MC1N2_AUDIO
-	LOCAL_C_INCLUDES += $(LOCAL_PATH)/../yamaha-mc1n2-audio/include
-	LOCAL_SHARED_LIBRARIES += libyamaha-mc1n2-audio
-
-#this really needs to get cleaned up to properly inherit from -common
-	ifeq ($(TARGET_DEVICE),n7000)
-		LOCAL_CFLAGS += -DYAMAHA_MC1N2_AUDIO_DEVICE=\"galaxys2\"
-	endif
-
-	ifeq ($(TARGET_DEVICE),i9100)
-		LOCAL_CFLAGS += -DYAMAHA_MC1N2_AUDIO_DEVICE=\"galaxys2\"
-	endif
-
-	ifeq ($(TARGET_DEVICE),i777)
-		LOCAL_CFLAGS += -DYAMAHA_MC1N2_AUDIO_DEVICE=\"galaxys2\"
-	endif
-
-endif
-
 LOCAL_PRELINK_MODULE := false
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_MODULE := audio.primary.$(TARGET_BOARD_PLATFORM)
+LOCAL_MODULE := audio.primary.$(TARGET_BOOTLOADER_BOARD_NAME)
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 
 include $(BUILD_SHARED_LIBRARY)

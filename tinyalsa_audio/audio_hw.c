@@ -166,7 +166,7 @@ static int audio_hw_set_mode(struct audio_hw_device *dev, int mode)
 
 				//Only enable dualmic for earpiece.
 				if(device_modem == AUDIO_DEVICE_OUT_EARPIECE)
-				  audio_ril_interface_set_twomic(ril_interface,TWO_MIC_SOLUTION_ON);
+					audio_ril_interface_set_twomic(ril_interface,TWO_MIC_SOLUTION_ON);
 
 				if(device->voice_volume)
 					audio_ril_interface_set_voice_volume(ril_interface, device_modem, device->voice_volume);

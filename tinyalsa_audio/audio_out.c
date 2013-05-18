@@ -537,6 +537,8 @@ static ssize_t audio_out_write(struct audio_stream_out *stream,
 			goto error;
 		}
 
+		audio_out_set_route(stream_out, stream_out->device_current);
+
 		stream_out->standby = 0;
 	}
 

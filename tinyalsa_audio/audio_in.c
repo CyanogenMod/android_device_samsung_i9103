@@ -113,6 +113,52 @@ int audio_in_set_route(struct tinyalsa_audio_stream_in *stream_in,
 	return 0;
 }
 
+int audio_in_set_input_source(struct tinyalsa_audio_stream_in *stream_in,
+	audio_source_t input_source)
+{
+	int rc;
+	const char *value;
+	struct mixer *mixer;
+	struct mixer_ctl *ctl;
+
+	if(stream_in == NULL)
+		return -1;
+
+	switch(input_source) {
+		case AUDIO_SOURCE_CAMCORDER:
+			value = "Camcorder";
+			break;
+
+		case AUDIO_SOURCE_VOICE_RECOGNITION:
+			value = "Voice recognition";
+			break;
+
+		default:
+			value = "Default";
+			break;
+	}
+
+	mixer = mixer_open(0);
+	if (!mixer)
+		return -1;
+
+	ctl = mixer_get_ctl_by_name(mixer, "Input Source");
+	if(!ctl) {
+		mixer_close(mixer);
+		return -1;
+	}
+
+	rc = mixer_ctl_set_enum_by_string(ctl, value);
+	if(rc < 0) {
+		mixer_close(mixer);
+		return -1;
+	}
+
+	mixer_close(mixer);
+
+	return 0;
+}
+
 int audio_in_resampler_open(struct tinyalsa_audio_stream_in *stream_in)
 {
 	int rc;
@@ -510,6 +556,24 @@ static int audio_in_set_parameters(struct audio_stream *stream, const char *kvpa
 	if(parms == NULL)
 		return -1;
 
+	rc = str_parms_get_str(parms, AUDIO_PARAMETER_STREAM_INPUT_SOURCE, value_string, sizeof(value_string));
+	if(rc < 0)
+		goto error_params;
+
+	value = atoi(value_string);
+
+	pthread_mutex_lock(&stream_in->device->lock);
+
+	/* We don't check for current input source value here, because
+	 *   1. the kernel driver sets it to default when PCM is closed,
+	 *   2. Android doesn't notify us to set it back to default.
+	 */
+	pthread_mutex_lock(&stream_in->lock);
+	audio_in_set_input_source(stream_in, (audio_source_t) value);
+	pthread_mutex_unlock(&stream_in->lock);
+
+	pthread_mutex_unlock(&stream_in->device->lock);
+
 	rc = str_parms_get_str(parms, AUDIO_PARAMETER_STREAM_ROUTING, value_string, sizeof(value_string));
 	if(rc < 0)
 		goto error_params;
@@ -595,6 +659,8 @@ static ssize_t audio_in_read(struct audio_stream_in *stream,
 			ALOGE("Unable to open pcm device");
 			goto error;
 		}
+
+		audio_in_set_route(stream_in, stream_in->device_current);
 
 		stream_in->standby = 0;
 	}
@@ -782,6 +848,8 @@ int audio_hw_open_input_stream(struct audio_hw_device *dev,
 	pthread_mutex_lock(&tinyalsa_audio_stream_in->lock);
 
 	audio_in_set_route(tinyalsa_audio_stream_in, devices);
+
+	audio_in_set_input_source(tinyalsa_audio_stream_in, AUDIO_SOURCE_DEFAULT);
 
 	pthread_mutex_unlock(&tinyalsa_audio_device->lock);
 
