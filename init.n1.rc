@@ -393,12 +393,6 @@ service bugreport /system/bin/dumpstate -d -v -o /data/storage/bugreports/bugrep
     oneshot
     keycodes 115 114
 
-# TVout (r.mewar)
-service TvoutService_C /system/bin/bintvoutservice
-    class main
-    user system
-    group graphics
-
 # Power management settings
 on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 216000
