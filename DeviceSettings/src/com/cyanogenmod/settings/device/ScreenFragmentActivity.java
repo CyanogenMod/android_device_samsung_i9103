@@ -34,8 +34,8 @@ public class ScreenFragmentActivity extends PreferenceFragment {
     private static final String PREF_ENABLED = "1";
     private static final String TAG = "GalaxyRSettings_Screen";
 
-    private static final String FILE_TOUCHKEY_DISABLE = "/sys/class/sec/sec_touchkey/force_disable";
-    private static final String FILE_TOUCHKEY_BRIGHTNESS = "/sys/class/sec/sec_touchkey/brightness";
+    private static final String FILE_TOUCHKEY_DISABLE = "/sys/class/leds/button-backlight/force_disable";
+    private static final String FILE_TOUCHKEY_BRIGHTNESS = "/sys/class/leds/button-backlight/brightness";
 
     private mDNIeScenario mmDNIeScenario;
     private mDNIeMode mmDNIeMode;
@@ -67,7 +67,7 @@ public class ScreenFragmentActivity extends PreferenceFragment {
             prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
         }
     }
-    
+
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 
@@ -78,11 +78,11 @@ public class ScreenFragmentActivity extends PreferenceFragment {
         if (key.compareTo(DeviceSettings.KEY_TOUCHKEY_LIGHT) == 0) {
             if (((CheckBoxPreference)preference).isChecked()) {
                 Utils.writeValue(FILE_TOUCHKEY_DISABLE, "0");
-                Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, "1");
+                Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, "255");
                 preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(true);
             } else {
                 Utils.writeValue(FILE_TOUCHKEY_DISABLE, "1");
-                Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, "2");
+                //Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, "0");
                 preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
             }
         }
@@ -99,6 +99,6 @@ public class ScreenFragmentActivity extends PreferenceFragment {
         boolean light = sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_LIGHT, true);
 
         Utils.writeValue(FILE_TOUCHKEY_DISABLE, light ? "0" : "1");
-        Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, light ? "1" : "2");
+        Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, light ? "255" : "0");
     }
 }
