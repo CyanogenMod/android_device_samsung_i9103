@@ -25,6 +25,7 @@
         <value>200000</value>
     </array>
     <item name="cpu.idle">2</item>
+    <item name="cpu.awake">15</item>
     <array name="cpu.active">
         <value>577</value>
         <value>408</value>

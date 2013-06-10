@@ -45,7 +45,7 @@
         <item>mobile_supl,3,0,2,60000,true</item>
         <item>mobile_dun,4,0,3,60000,true</item>
         <item>mobile_hipri,5,0,3,60000,true</item>
-        <item>bluetooth,7,7,0,-1,true</item>
+        <item>mobile_bluetooth,7,7,0,-1,true</item>
         <item>mobile_fota,10,0,2,60000,true</item>
         <item>mobile_ims,11,0,2,60000,true</item>
         <item>mobile_cbs,12,0,2,60000,true</item>
@@ -82,6 +82,16 @@
 	<item>10</item>
 	<item>11</item>
 	<item>12</item>
+    </integer-array>
+
+    <!-- Array of ConnectivityManager.TYPE_xxxx values allowable for tethering -->
+    <!-- Common options are [1, 4] for TYPE_WIFI and TYPE_MOBILE_DUN or
+    <!== [0,1,5,7] for TYPE_MOBILE, TYPE_WIFI, TYPE_MOBILE_HIPRI and TYPE_BLUETOOTH -->
+    <integer-array translatable="false" name="config_tether_upstream_types">
+        <item>0</item>
+        <item>1</item>
+        <item>5</item>
+        <item>7</item>
     </integer-array>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
