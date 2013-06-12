@@ -75,9 +75,6 @@ ifeq ($(TARGET_NO_RECOVERY),false)
     BOARD_CUSTOM_BOOTIMG_MK := device/samsung/i9103/tools/bootimg.mk
 endif
 
-# RIL
-BOARD_USES_LIBSECRIL_STUB := false
-
 # 3G
 BOARD_MOBILEDATA_INTERFACE_NAME := "rmnet0"
 

@@ -9,7 +9,7 @@ LOCAL_PATH := device/samsung/i9103
 PRODUCT_PACKAGES += \
     GalaxyRSettings \
     libnetcmdiface \
-    libsurfaceflinger_client \
+    libsecril-client \
     com.android.future.usb.accessory \
     SamsungServiceMode \
     Torch
@@ -23,6 +23,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     sensors.n1 \
     lights.n1 \
+    power.tegra \
     gps.tegra \
     camera.tegra \
     gralloc.tegra \

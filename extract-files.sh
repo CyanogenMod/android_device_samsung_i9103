@@ -30,7 +30,7 @@ adb pull /sbin/cbd $DEVICEBASE/sbin/cbd
 
 # HAL
 mkdir -p $DEVICEBASE/system/lib/hw/
-adb pull /system/lib/hw/camera.tegra.so $DEVICEBASE/system/lib/hw/
+adb pull /system/lib/hw/vendor-camera.tegra.so $DEVICEBASE/system/lib/hw/
 adb pull /system/lib/hw/gps.tegra.so $DEVICEBASE/system/lib/hw/
 adb pull /system/lib/hw/gralloc.tegra.so $DEVICEBASE/system/lib/hw/
 adb pull /system/lib/hw/hwcomposer.tegra.so $DEVICEBASE/system/lib/hw/
@@ -48,7 +48,6 @@ adb pull /system/lib/egl/libGLESv2_tegra.so $DEVICEBASE/system/lib/egl/
 # RIL files
 adb pull /system/lib/libril.so $DEVICEBASE/system/lib/
 adb pull /system/lib/libsec-ril.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libsecril-client.so $DEVICEBASE/system/lib/
 
 # Sensors
 adb pull /system/lib/libakm.so $DEVICEBASE/system/lib/
@@ -122,24 +121,21 @@ adb pull /system/lib/libstagefrighthw.so $DEVICEBASE/system/lib/
 # Camera
 adb pull /system/cameradata/ $DEVICEBASE/system/cameradata/
 
-# TVOut
-mkdir -p $DEVICEBASE/system/bin/
-adb pull /system/bin/bintvoutservice $DEVICEBASE/system/bin/
-adb pull /system/lib/libtvoutinterface.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libtvoutservice.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libtvout_jni.so $DEVICEBASE/system/lib/
-chmod 755 $DEVICEBASE/system/bin/bintvoutservice
-
 # IDC, Keychars, Keylayout
-mkdir -p $DEVICEBASE/system/usr/
-adb pull /system/usr/idc/ $DEVICEBASE/system/usr/idc/
-adb pull /system/usr/keychars/ $DEVICEBASE/system/usr/keychars/
-adb pull /system/usr/keylayout/ $DEVICEBASE/system/usr/keylayout/
+mkdir -p $DEVICEBASE/system/usr/keylayout/
+adb pull /system/usr/keylayout/Bluetooth_00_06_66_42.kl $DEVICEBASE/system/usr/keylayout/
+adb pull /system/usr/keylayout/sec_jack.kl $DEVICEBASE/system/usr/keylayout/
+adb pull /system/usr/keylayout/sec_touchscreen.kl $DEVICEBASE/system/usr/keylayout/
+adb pull /system/usr/keylayout/Vendor_04e8_Product_7021.kl $DEVICEBASE/system/usr/keylayout/
+adb pull /system/usr/keylayout/Vendor_044f_Product_d007.kl $DEVICEBASE/system/usr/keylayout/
+adb pull /system/usr/keylayout/Vendor_046d_Product_c21d.kl $DEVICEBASE/system/usr/keylayout/
+adb pull /system/usr/keylayout/Vendor_046d_Product_c21f.kl $DEVICEBASE/system/usr/keylayout/
+adb pull /system/usr/keylayout/Vendor_057e_Product_0306.kl $DEVICEBASE/system/usr/keylayout/
+adb pull /system/usr/keylayout/Vendor_2378_Product_100a.kl $DEVICEBASE/system/usr/keylayout/
 
 # Other files
 adb pull /system/bin/nvcpud $DEVICEBASE/system/bin/
 chmod 755 $DEVICEBASE/system/bin/nvcpud
-
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__VENDOR__/$VENDOR/g > $DEVICEMAKEFILE
 # Copyright (C) 2012 The CyanogenMod Project
@@ -160,8 +156,7 @@ chmod 755 $DEVICEBASE/system/bin/nvcpud
 
 # Prebuilt libraries that are needed to build open-source libraries
 PRODUCT_COPY_FILES := \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libril.so:obj/lib/libril.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsecril-client.so:obj/lib/libsecril-client.so
+    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libril.so:obj/lib/libril.so
 
 # CBD
 PRODUCT_COPY_FILES += \\
@@ -169,7 +164,7 @@ PRODUCT_COPY_FILES += \\
 
 # HAL
 PRODUCT_COPY_FILES += \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/hw/camera.tegra.so:system/lib/hw/camera.tegra.so \\
+    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/hw/vendor-camera.tegra.so:system/lib/hw/vendor-camera.tegra.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/hw/gps.tegra.so:system/lib/hw/gps.tegra.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/hw/gralloc.tegra.so:system/lib/hw/gralloc.tegra.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/hw/hwcomposer.tegra.so:system/lib/hw/hwcomposer.tegra.so \\
@@ -187,8 +182,7 @@ PRODUCT_COPY_FILES += \\
 # RIL files
 PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libril.so:system/lib/libril.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsec-ril.so:system/lib/libsec-ril.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsecril-client.so:system/lib/libsecril-client.so
+    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libsec-ril.so:system/lib/libsec-ril.so
 
 # Sensors
 PRODUCT_COPY_FILES += \\
@@ -283,25 +277,6 @@ PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/cameradata/datapattern_420sp.yuv:system/cameradata/datapattern_420sp.yuv \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/cameradata/datapattern_front_420sp.yuv:system/cameradata/datapattern_front_420sp.yuv
 
-# TVOut
-PRODUCT_COPY_FILES += \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/bin/bintvoutservice:system/bin/bintvoutservice \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libtvoutinterface.so:system/lib/libtvoutinterface.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libtvoutservice.so:system/lib/libtvoutservice.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libtvout_jni.so:system/lib/libtvout_jni.so
-
-# IDC files (already in build)
-#PRODUCT_COPY_FILES += \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/idc/qwerty.idc:system/usr/idc/qwerty.idc \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/idc/qwerty2.idc:system/usr/idc/qwerty2.idc
-
-# Keychars (already in build)
-#PRODUCT_COPY_FILES += \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keychars/Generic.kcm:system/usr/keychars/Generic.kcm \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keychars/Virtual.kcm:system/usr/keychars/Virtual.kcm
-
 # Keylayout
 PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Bluetooth_00_06_66_42.kl:system/usr/keylayout/Bluetooth_00_06_66_42.kl \\
@@ -314,21 +289,6 @@ PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_046d_Product_c21f.kl:system/usr/keylayout/Vendor_046d_Product_c21f.kl \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_057e_Product_0306.kl:system/usr/keylayout/Vendor_057e_Product_0306.kl \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_2378_Product_100a.kl:system/usr/keylayout/Vendor_2378_Product_100a.kl
-
-# Keylayout (already defined in build)
-#PRODUCT_COPY_FILES += \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_05ac_Product_0239.kl:system/usr/keylayout/Vendor_05ac_Product_0239.kl \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_22b8_Product_093d.kl:system/usr/keylayout/Vendor_22b8_Product_093d.kl \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_028e.kl \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_045e_Product_0719.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_046d_Product_c216.kl:system/usr/keylayout/Vendor_046d_Product_c216.kl \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_046d_Product_c294.kl:system/usr/keylayout/Vendor_046d_Product_c294.kl \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_046d_Product_c299.kl:system/usr/keylayout/Vendor_046d_Product_c299.kl \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_046d_Product_c532.kl:system/usr/keylayout/Vendor_046d_Product_c532.kl \\
-#    vendor/__VENDOR__/__DEVICE__/proprietary/system/usr/keylayout/Vendor_054c_Product_0268.kl:system/usr/keylayout/Vendor_054c_Product_0268.kl \\
 
 # Other files
 PRODUCT_COPY_FILES += \\
