@@ -95,8 +95,11 @@ on boot
     chown system audio /sys/power/suspend/mode
     chown system audio /sys/devices/virtual/jack/jack_reselector/reselect_jack
 
-# backlight
+# backlight and leds
     chown system system /sys/class/backlight/pwm-backlight/brightness
+    chown system system /sys/class/leds/button-backlight/brightness
+    chown system system /sys/class/leds/button-backlight/force_disable
+    chown system system /sys/class/leds/button-backlight/timeout
 
 # LCD/CMC623
     chmod 664 /sys/devices/virtual/mdnie/cmc623-ext/set_bypass
