@@ -28,12 +28,11 @@
 #include <linux/kd.h>
 
 #include <pixelflinger/pixelflinger.h>
-#include <cutils/memory.h>
 
-#ifndef BOARD_LDPI_RECOVERY
-	#include "font_10x18.h"
+#ifdef BOARD_USE_CUSTOM_RECOVERY_FONT
+#include BOARD_USE_CUSTOM_RECOVERY_FONT
 #else
-	#include "font_7x16.h"
+#include "font_10x18.h"
 #endif
 
 #include "minui.h"
@@ -91,29 +90,20 @@ static int get_framebuffer(GGLSurface *fb)
     fb->version = sizeof(*fb);
     fb->width = vi.xres;
     fb->height = vi.yres;
-#ifdef BOARD_HAS_JANKY_BACKBUFFER
-    fb->stride = fi.line_length/2;
-#else
-    fb->stride = vi.xres_virtual;
-#endif
+    fb->stride = vi.xres;
     fb->data = bits;
     fb->format = GGL_PIXEL_FORMAT_RGB_565;
-    memset(fb->data, 0, vi.yres * vi.xres_virtual * vi.bits_per_pixel / 8);
+    memset(fb->data, 0, vi.yres * vi.xres * 2);
 
     fb++;
 
     fb->version = sizeof(*fb);
     fb->width = vi.xres;
     fb->height = vi.yres;
-#ifdef BOARD_HAS_JANKY_BACKBUFFER
-    fb->stride = fi.line_length/2;
-    fb->data = (void*) (((unsigned) bits) + vi.yres * fi.line_length);
-#else
-    fb->stride = vi.xres_virtual;
-    fb->data = (void*) (((unsigned) bits) + (vi.yres * vi.xres_virtual * vi.bits_per_pixel / 8));
-#endif
+    fb->stride = vi.xres;
+    fb->data = (void*) (((unsigned) bits) + vi.yres * vi.xres * 2);
     fb->format = GGL_PIXEL_FORMAT_RGB_565;
-    memset(fb->data, 0, vi.yres * vi.xres_virtual * vi.bits_per_pixel / 8);
+    memset(fb->data, 0, vi.yres * vi.xres * 2);
 
     return fd;
 }
@@ -122,8 +112,8 @@ static void get_memory_surface(GGLSurface* ms) {
   ms->version = sizeof(*ms);
   ms->width = vi.xres;
   ms->height = vi.yres;
-  ms->stride = vi.xres_virtual;
-  ms->data = malloc(vi.xres_virtual * vi.yres * vi.bits_per_pixel / 8);
+  ms->stride = vi.xres;
+  ms->data = malloc(vi.xres * vi.yres * 2);
   ms->format = GGL_PIXEL_FORMAT_RGB_565;
 }
 
@@ -132,30 +122,9 @@ static void set_active_framebuffer(unsigned n)
     if (n > 1) return;
     vi.yres_virtual = vi.yres * 2;
     vi.yoffset = n * vi.yres;
+    vi.bits_per_pixel = 16;
     if (ioctl(gr_fb_fd, FBIOPUT_VSCREENINFO, &vi) < 0) {
         perror("active fb swap failed");
-    }
-}
-
-void gr_flip_32(unsigned *bits, unsigned short *ptr, unsigned count)
-{
-   unsigned i=0;
-   while (i<count) {
-        uint32_t rgb32, red, green, blue, alpha;
-
-        /* convert 16 bits to 32 bits */
-        rgb32 = ((ptr[i] >> 11) & 0x1F);
-        red = (rgb32 << 3) | (rgb32 >> 2);
-        rgb32 = ((ptr[i] >> 5) & 0x3F);
-        green = (rgb32 << 2) | (rgb32 >> 4);
-        rgb32 = ((ptr[i]) & 0x1F);
-        blue = (rgb32 << 3) | (rgb32 >> 2);
-        alpha = 0xff;
-        rgb32 = (alpha << 24) | (blue << 16)
-        | (green << 8) | (red);
-        android_memset32((uint32_t *)bits, rgb32, 4);
-        i++;
-        bits++;
     }
 }
 
@@ -166,29 +135,10 @@ void gr_flip(void)
     /* swap front and back buffers */
     gr_active_fb = (gr_active_fb + 1) & 1;
 
-#ifdef BOARD_HAS_FLIPPED_SCREEN
-    /* flip buffer 180 degrees for devices with physicaly inverted screens */
-    unsigned int i;
-    for (i = 1; i < (vi.xres * vi.yres); i++) {
-        unsigned short tmp = gr_mem_surface.data[i];
-        gr_mem_surface.data[i] = gr_mem_surface.data[(vi.xres * vi.yres * 2) - i];
-        gr_mem_surface.data[(vi.xres * vi.yres * 2) - i] = tmp;
-    }
-#endif
-
     /* copy data from the in-memory surface to the buffer we're about
-     * to make active. */ 
-    if(vi.bits_per_pixel == 32)
-    {
-        gr_flip_32((unsigned *)gr_framebuffer[gr_active_fb].data, \
-                   (unsigned short *)gr_mem_surface.data,
-                   (vi.xres_virtual * vi.yres));
-    }
-    else
-    {
-        memcpy(gr_framebuffer[gr_active_fb].data, gr_mem_surface.data,
-               vi.xres_virtual * vi.yres *2);
-    }
+     * to make active. */
+    memcpy(gr_framebuffer[gr_active_fb].data, gr_mem_surface.data,
+           vi.xres * vi.yres * 2);
 
     /* inform the display driver */
     set_active_framebuffer(gr_active_fb);
@@ -208,6 +158,12 @@ void gr_color(unsigned char r, unsigned char g, unsigned char b, unsigned char a
 int gr_measure(const char *s)
 {
     return gr_font->cwidth * strlen(s);
+}
+
+void gr_font_size(int *x, int *y)
+{
+    *x = gr_font->cwidth;
+    *y = gr_font->cheight;
 }
 
 int gr_text(int x, int y, const char *s)
@@ -366,12 +322,6 @@ int gr_fb_height(void)
 gr_pixel *gr_fb_data(void)
 {
     return (unsigned short *) gr_mem_surface.data;
-}
-
-void gr_font_size(int *x, int *y)
-{
-    *x = gr_font->cwidth;
-    *y = gr_font->cheight;
 }
 
 void gr_fb_blank(bool blank)
