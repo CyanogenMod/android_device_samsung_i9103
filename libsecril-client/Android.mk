@@ -3,20 +3,10 @@
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
-
-LOCAL_SRC_FILES:= \
-    secril-client.cpp
-
-LOCAL_SHARED_LIBRARIES := \
-    libutils \
-    libbinder \
-    libcutils \
-    libhardware_legacy
-
-LOCAL_PRELINK_MODULE := false
+LOCAL_MODULE := libsecril-client.so
+LOCAL_MODULE_CLASS := SHARED_LIBRARY
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)
+LOCAL_UNSTRIPPED_PATH := $(TARGET_OUT_SHARED_LIBRARIES_UNSTRIPPED)
 LOCAL_MODULE_TAGS := optional
-
-LOCAL_LDLIBS += -lpthread
-LOCAL_MODULE := libsecril-client
-
-include $(BUILD_SHARED_LIBRARY)
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
