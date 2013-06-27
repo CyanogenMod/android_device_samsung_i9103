@@ -14,7 +14,6 @@
      limitations under the License.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
     <string-array name="mdnie_scenario_entries">
         <item>Käyttöliittymä (Oletus)</item>
         <item>Video</item>
@@ -69,5 +68,4 @@
         <item>5 seconds</item>
         <item>6 seconds</item>
     </string-array>
-
 </resources>
