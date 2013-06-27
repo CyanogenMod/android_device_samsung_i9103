@@ -14,7 +14,6 @@
      limitations under the License.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
     <string-array name="mdnie_scenario_entries">
         <item>UI (Domyślnie)</item>
         <item>Wideo</item>
@@ -69,5 +68,4 @@
         <item>5 sekund</item>
         <item>6 sekund</item>
     </string-array>
-
 </resources>

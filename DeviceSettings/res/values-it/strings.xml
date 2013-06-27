@@ -13,7 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
  -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Impostazioni Galaxy R</string>
     <string name="category_screen_title">Schermo</string>
     <string name="screen_colors_title">Colori</string>
@@ -49,4 +49,3 @@
     <string name="use_dock_audio_title_head">Usa USB audio in dock</string>
     <string name="use_dock_audio_summary_head">Usa l\'uscita audio passiva quando in dock</string>
 </resources>
-
