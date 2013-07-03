@@ -321,6 +321,10 @@ on boot
     chown system radio /sys/class/power_supply/battery/batt_charging_source
     chown system radio /sys/class/power_supply/battery/batt_lp_charging
 
+    # prevent bootloop on upgrade
+    stop media
+    start media
+
 service cpboot-daemon /sbin/cbd -d -o t -p 7
     class main
     user root
