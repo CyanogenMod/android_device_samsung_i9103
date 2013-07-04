@@ -321,9 +321,13 @@ on boot
     chown system radio /sys/class/power_supply/battery/batt_charging_source
     chown system radio /sys/class/power_supply/battery/batt_lp_charging
 
-    # prevent bootloop on upgrade
-    stop media
-    start media
+    # nvcpud
+    chown system root /dev/min_online_cpus
+    chown system root /dev/cpu_freq_min
+    chown system root /dev/cpu_freq_max
+
+    setprop nvcpud.enabled true
+    setprop nvcpud.config_refresh_ms 5000
 
 service cpboot-daemon /sbin/cbd -d -o t -p 7
     class main
@@ -384,21 +388,24 @@ service iprenew_p2p /system/bin/dhcpcd -n
     disabled
     oneshot
 
-# Enable NvCpuD, and set it to never poll config again
-on boot
-    setprop nvcpud.enabled true
-    setprop nvcpud.config_refresh_ms -1
-
 service nvcpud /system/bin/nvcpud
     class main
-    user root
-    group root
+    user system
+    group log
 
 # bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys
 service bugreport /system/bin/dumpstate -d -v -o /data/storage/bugreports/bugreport
     disabled
     oneshot
     keycodes 115 114
+
+# Exec after cm runparts
+on property:init.svc.sysinit=stopped
+    # set KSM thread interval to 15 seconds (vs 1.5 in cm.rc)
+    write /sys/kernel/mm/ksm/sleep_millisecs 15000
+    # prevent bootloop on upgrade, service will autorestart
+    exec /system/xbin/killall mediaserver
+    restart media
 
 # Power management settings
 on property:sys.boot_completed=1
