@@ -690,7 +690,7 @@ int tinyalsa_mixer_set_route_ctrl(struct tinyalsa_mixer *mixer,
 
 	if(type == MIXER_CTL_TYPE_BOOL || type == MIXER_CTL_TYPE_INT ||
 		type == MIXER_CTL_TYPE_BYTE) {
-		for(i=0 ; i < mixer_ctl_get_num_values(ctl) ; i++) {
+		for(i=0 ; i < (int) mixer_ctl_get_num_values(ctl) ; i++) {
 			rc = mixer_ctl_set_value(ctl, i, value);
 			if(rc < 0)
 				return -1;

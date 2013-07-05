@@ -39,6 +39,8 @@
 #include "audio_hw.h"
 #include "mixer.h"
 
+static int failcount = 0;
+
 /*
  * Functions
  */
@@ -168,6 +170,8 @@ int audio_out_write_process(struct tinyalsa_audio_stream_out *stream_out, void *
 	int i, j;
 	int rc;
 
+	int want_restart = 0;
+
 	if(stream_out == NULL || buffer == NULL || size <= 0)
 		return -1;
 
@@ -230,6 +234,7 @@ int audio_out_write_process(struct tinyalsa_audio_stream_out *stream_out, void *
 	if(buffer_in != NULL) {
 		if(stream_out->pcm == NULL || !pcm_is_ready(stream_out->pcm)) {
 			ALOGE("pcm device is not ready");
+			want_restart = 1;
 			goto error;
 		}
 
@@ -252,6 +257,17 @@ error:
 		free(buffer_out_resampler);
 	if(buffer_out_channels != NULL)
 		free(buffer_out_channels);
+
+
+	failcount++;
+	if (want_restart && failcount > 3) {
+		int pid = getpid();
+		if (pid > 0) {
+			failcount = 0;
+			ALOGW("restarting mediaserver, too much fails");
+			kill(pid, SIGKILL);
+		}
+	}
 
 	return -1;
 }
@@ -467,16 +483,20 @@ static uint32_t audio_out_get_latency(const struct audio_stream_out *stream)
 	struct tinyalsa_audio_stream_out *stream_out;
 	uint32_t latency;
 
-	ALOGD("%s(%p)", __func__, stream);
-
 	if(stream == NULL)
-		return -1;
+		return 0;
 
 	stream_out = (struct tinyalsa_audio_stream_out *) stream;
+
+	if(stream_out->standby || !stream_out->pcm) {
+		return 0;
+	}
 
 	latency = (stream_out->mixer_props->period_size *
 		stream_out->mixer_props->period_count * 1000) /
 		stream_out->mixer_props->rate;
+
+	ALOGD("%s(%p) -> %u", __func__, stream, latency);
 
 	return latency;
 }
