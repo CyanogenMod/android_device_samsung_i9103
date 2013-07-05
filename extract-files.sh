@@ -71,7 +71,6 @@ adb pull /system/lib/libnvasfparserhal.so $DEVICEBASE/system/lib/
 adb pull /system/lib/libnvaviparserhal.so $DEVICEBASE/system/lib/
 adb pull /system/lib/libnvavp.so $DEVICEBASE/system/lib/
 adb pull /system/lib/libnvcpud.so $DEVICEBASE/system/lib/
-adb pull /system/lib/libnvcpud_client.so $DEVICEBASE/system/lib/
 adb pull /system/lib/libnvddk_2d.so $DEVICEBASE/system/lib/
 adb pull /system/lib/libnvddk_2d_v2.so $DEVICEBASE/system/lib/
 adb pull /system/lib/libnvmm.so $DEVICEBASE/system/lib/
@@ -208,7 +207,6 @@ PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libnvaviparserhal.so:system/lib/libnvaviparserhal.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libnvavp.so:system/lib/libnvavp.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libnvcpud.so:system/lib/libnvcpud.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libnvcpud_client.so:system/lib/libnvcpud_client.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libnvddk_2d.so:system/lib/libnvddk_2d.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libnvddk_2d_v2.so:system/lib/libnvddk_2d_v2.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/system/lib/libnvmm.so:/system/lib/libnvmm.so \\

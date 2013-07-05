@@ -321,18 +321,18 @@ on boot
     chown system radio /sys/class/power_supply/battery/batt_charging_source
     chown system radio /sys/class/power_supply/battery/batt_lp_charging
 
-    # nvcpud
+    # nvcpud is not safe, and not linked to the framework
     chown system root /dev/min_online_cpus
     chown system root /dev/cpu_freq_min
     chown system root /dev/cpu_freq_max
-
     setprop nvcpud.enabled true
-    setprop nvcpud.config_refresh_ms 5000
+    setprop nvcpud.config_refresh_ms 30000
+    start nvcpud
 
 service cpboot-daemon /sbin/cbd -d -o t -p 7
     class main
     user root
-    group radio cache inet misc audio sdcard_r sdcard_rw qcom_oncrpc qcom_diag log
+    group radio cache inet misc audio log sdcard_rw qcom_oncrpc qcom_diag
 
 service p2p_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -N \
@@ -392,6 +392,7 @@ service nvcpud /system/bin/nvcpud
     class main
     user system
     group log
+    disabled
 
 # bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys
 service bugreport /system/bin/dumpstate -d -v -o /data/storage/bugreports/bugreport
@@ -421,3 +422,5 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpufreq/interactive/boost_factor 2
     write /sys/devices/system/cpu/cpufreq/interactive/sustain_load 80
     write /sys/module/cpuidle/parameters/lp2_in_idle 1
+    stop nvcpud
+
