@@ -197,18 +197,6 @@ on boot
     chown radio system /sys/power/cpufreq_table
     chmod 0444 /sys/power/cpufreq_table
 
-# Power management settings
-#    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 216000
-#    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1200000
-#    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-#    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 216000
-#    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1200000
-#    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
-#    write /sys/devices/system/cpu/cpufreq/interactive/go_maxspeed_load 80
-#    write /sys/devices/system/cpu/cpufreq/interactive/boost_factor 2
-#    write /sys/devices/system/cpu/cpufreq/interactive/sustain_load 80
-#    write /sys/module/cpuidle/parameters/lp2_in_idle 1
-
 # COM port settings
     symlink /dev/ttyACM3 /dev/log_modem
 
@@ -412,12 +400,6 @@ on property:init.svc.media=restarting
 
 # Power management settings
 on property:sys.boot_completed=1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 216000
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1000000
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 216000
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1000000
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpufreq/interactive/go_maxspeed_load 80
     write /sys/devices/system/cpu/cpufreq/interactive/boost_factor 2
     write /sys/devices/system/cpu/cpufreq/interactive/sustain_load 80
