@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <device name="Android">
     <item name="none">0</item>
-    <item name="screen.on">75</item>
+    <item name="screen.on">45</item>
+    <item name="screen.full">200</item>
     <item name="bluetooth.active">32</item>
     <item name="bluetooth.on">0.3</item>
-    <item name="screen.full">201</item>
     <item name="wifi.on">0.3</item>
     <item name="wifi.active">83</item>
     <item name="wifi.scan">52</item>
