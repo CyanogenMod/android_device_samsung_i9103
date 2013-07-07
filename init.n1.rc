@@ -400,6 +400,9 @@ on property:init.svc.media=restarting
 
 # Power management settings
 on property:sys.boot_completed=1
+    chown system system /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+    chown system system /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+    chown system system /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
     write /sys/devices/system/cpu/cpufreq/interactive/go_maxspeed_load 80
     write /sys/devices/system/cpu/cpufreq/interactive/boost_factor 2
     write /sys/devices/system/cpu/cpufreq/interactive/sustain_load 80
