@@ -13,7 +13,7 @@
 # limitations under the License.
 
 LOCAL_PATH := device/samsung/i9103
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/i9103/overlay/include
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/i9103/include
 
 # CPU
 TARGET_CPU_ABI := armeabi-v7a
@@ -29,6 +29,7 @@ TARGET_ARCH_VARIANT_FPU := vfpv3-d16
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
 #TARGET_HAVE_TEGRA_ERRATA_657451 := true
+BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := tegra
 TARGET_TEGRA_VERSION := ap20
 TARGET_BOARD_PLATFORM_GPU := tegra
@@ -75,7 +76,9 @@ ifeq ($(TARGET_NO_RECOVERY),false)
     BOARD_CUSTOM_BOOTIMG_MK := device/samsung/i9103/tools/bootimg.mk
 endif
 
-# 3G
+# RIL
+BOARD_PROVIDES_LIBRIL := true
+BOARD_MODEM_TYPE := xmm6260
 BOARD_MOBILEDATA_INTERFACE_NAME := "rmnet0"
 
 # Audio
