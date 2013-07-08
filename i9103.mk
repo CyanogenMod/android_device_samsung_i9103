@@ -9,7 +9,7 @@ LOCAL_PATH := device/samsung/i9103
 PRODUCT_PACKAGES += \
     GalaxyRSettings \
     libnetcmdiface \
-    libsecril-client.so \
+    libril.so libsecril-client.so \
     com.android.future.usb.accessory \
     SamsungServiceMode \
     Torch
@@ -121,7 +121,7 @@ DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=SamsungExynos4RIL \
+    ro.telephony.ril_class=SamsungOEM4RIL \
     mobiledata.interfaces=rmnet0,rmnet1,rmnet2
 
 # The OpenGL ES API level that is natively supported by this device.
