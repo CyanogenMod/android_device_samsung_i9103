@@ -121,7 +121,7 @@ DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=SamsungExynos4RIL \
+    ro.telephony.ril_class=SamsungOEM4RIL \
     mobiledata.interfaces=rmnet0,rmnet1,rmnet2
 
 # The OpenGL ES API level that is natively supported by this device.
