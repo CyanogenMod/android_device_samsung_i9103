@@ -9,7 +9,6 @@ LOCAL_PATH := device/samsung/i9103
 PRODUCT_PACKAGES += \
     GalaxyRSettings \
     libnetcmdiface \
-    libsecril-client.so \
     com.android.future.usb.accessory \
     SamsungServiceMode \
     Torch
