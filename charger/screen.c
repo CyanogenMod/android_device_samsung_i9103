@@ -214,12 +214,12 @@ void screen_uninit(void)
 
 void display_blank(void)
 {
-   if (ioctl(fb->fd, FBIOBLANK, VESA_POWERDOWN) < 0)
+   if (ioctl(fb->fd, FBIOBLANK, FB_BLANK_POWERDOWN) < 0)
        ALOGE("display blank failed, fb.fd %d\n", fb->fd);
 }
 
 void display_unblank(void)
 {
-   if (ioctl(fb->fd, FBIOBLANK, VESA_NO_BLANKING) < 0)
+   if (ioctl(fb->fd, FBIOBLANK, FB_BLANK_UNBLANK) < 0)
        ALOGE("display unblank failed, fb.fd %d\n", fb->fd);
 }

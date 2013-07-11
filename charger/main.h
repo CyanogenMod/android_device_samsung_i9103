@@ -42,4 +42,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /* can use led hal if system is mounted */
 #define CHARGER_USE_LIBHARDWARE  0
 
+#define ALT_SYSFS_BACKLIGHT_BRIGHTNESS "/sys/class/backlight/pwm-backlight/brightness"
+
 #endif
