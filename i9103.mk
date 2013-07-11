@@ -14,7 +14,7 @@ PRODUCT_PACKAGES += \
     Torch
 
 # Charger
-PRODUCT_PACKAGES += motocharger
+PRODUCT_PACKAGES += anicharger
 
 # HAL
 PRODUCT_PACKAGES += \

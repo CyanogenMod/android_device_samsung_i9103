@@ -164,7 +164,7 @@ void get_device_state(struct device_state *s)
 static struct light_device_t *battery_light = NULL;
 static struct light_device_t *screen_light = NULL;
 
-static void set_color(struct light_device_t *light, int color)
+static int set_color(struct light_device_t *light, int color)
 {
     if (light != NULL) {
         struct light_state_t state;
@@ -175,7 +175,10 @@ static void set_color(struct light_device_t *light, int color)
         state.brightnessMode = BRIGHTNESS_MODE_USER;
 
         light->set_light(light, &state);
+
+        return 1;
     }
+    return 0;
 }
 
 void set_battery_led(struct device_state *s)
@@ -194,7 +197,10 @@ void set_brightness(float percent)
     int brightness = (int) 255 * percent;
     int color = 0xff000000 | (brightness << 16) | (brightness << 8) | brightness;
 
-    set_color(screen_light, color);
+    if (!set_color(screen_light, color)) {
+        // use sysfs for screen backlight
+
+    }
 }
 
 void led_init(void)
