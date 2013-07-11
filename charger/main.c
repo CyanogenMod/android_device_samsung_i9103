@@ -70,7 +70,7 @@ void screen_brightness_animation_alarm2(void *_)
 
 void screen_brightness_animation_alarm1(void *_)
 {
-    set_brightness(0.4);
+    set_brightness(0.1);
     /* Bright for 10s */
     alarm_set_relative(screen_brightness_animation_alarm2, NULL, 10000);
 }
@@ -79,7 +79,7 @@ void screen_brightness_animation_start(void)
 {
     display_unblank();
 
-    set_brightness(0.8);
+    set_brightness(0.4);
     alarm_set_relative(screen_brightness_animation_alarm1, NULL, 5000);
     alarm_set_relative(animation_alarm, NULL, ANIMATION_TIMEOUT);
 }

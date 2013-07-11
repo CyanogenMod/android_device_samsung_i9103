@@ -48,5 +48,7 @@ void led_uninit(void);
 int sys_get_int_parameter(const char *path, int missing_value);
 int sys_get_string_parameter(const char *path, char *s, int size);
 int sys_scanf_file(const char *path, char *s, int size);
+int sys_write_file_int(const char *path, int value);
+
 
 #endif

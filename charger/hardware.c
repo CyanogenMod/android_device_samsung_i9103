@@ -99,6 +99,30 @@ int sys_scanf_file(const char *path, char *s, int size)
     return r;
 }
 
+int sys_write_file_int(const char *path, int value)
+{
+    int r;
+    FILE* f = fopen(path, "w");
+    if (!f)
+        return 0;
+    r = fprintf(f, "%d\n", value);
+    fclose(f);
+    return r;
+}
+
+#if 0
+int sys_write_file_str(const char *path, char *s, int size)
+{
+    int r;
+    FILE* f = fopen(path, "w");
+    if (!f)
+        return 0;
+    r = fprintf(f, "%s\n", s);
+    fclose(f);
+    return r;
+}
+#endif
+
 int is_plugged_into_ac()
 {
     return sys_get_int_parameter("/sys/class/power_supply/ac/online", 0);
@@ -164,7 +188,7 @@ void get_device_state(struct device_state *s)
 static struct light_device_t *battery_light = NULL;
 static struct light_device_t *screen_light = NULL;
 
-static void set_color(struct light_device_t *light, int color)
+static int set_color(struct light_device_t *light, int color)
 {
     if (light != NULL) {
         struct light_state_t state;
@@ -175,7 +199,10 @@ static void set_color(struct light_device_t *light, int color)
         state.brightnessMode = BRIGHTNESS_MODE_USER;
 
         light->set_light(light, &state);
+
+        return 1;
     }
+    return 0;
 }
 
 void set_battery_led(struct device_state *s)
@@ -194,7 +221,12 @@ void set_brightness(float percent)
     int brightness = (int) 255 * percent;
     int color = 0xff000000 | (brightness << 16) | (brightness << 8) | brightness;
 
-    set_color(screen_light, color);
+    if (!set_color(screen_light, color)) {
+#if !CHARGER_USE_LIBHARDWARE
+        // use sysfs for screen backlight
+        sys_write_file_int(ALT_SYSFS_BACKLIGHT_BRIGHTNESS, brightness);
+#endif
+    }
 }
 
 void led_init(void)
