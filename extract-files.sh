@@ -123,6 +123,7 @@ adb pull /system/cameradata/ $DEVICEBASE/system/cameradata/
 mkdir -p $DEVICEBASE/system/usr/keylayout/
 adb pull /system/usr/keylayout/Bluetooth_00_06_66_42.kl $DEVICEBASE/system/usr/keylayout/
 adb pull /system/usr/keylayout/sec_jack.kl $DEVICEBASE/system/usr/keylayout/
+adb pull /system/usr/keylayout/sec_key.kl $DEVICEBASE/system/usr/keylayout/
 adb pull /system/usr/keylayout/sec_touchscreen.kl $DEVICEBASE/system/usr/keylayout/
 adb pull /system/usr/keylayout/Vendor_04e8_Product_7021.kl $DEVICEBASE/system/usr/keylayout/
 adb pull /system/usr/keylayout/Vendor_044f_Product_d007.kl $DEVICEBASE/system/usr/keylayout/
@@ -132,7 +133,7 @@ adb pull /system/usr/keylayout/Vendor_057e_Product_0306.kl $DEVICEBASE/system/us
 adb pull /system/usr/keylayout/Vendor_2378_Product_100a.kl $DEVICEBASE/system/usr/keylayout/
 
 # Other files
-adb pull /system/bin/nvcpud $DEVICEBASE/system/bin/
+adb pull /system/bin/nvcpud $DEVICEBASE/system/bin/nvcpud
 chmod 755 $DEVICEBASE/system/bin/nvcpud
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__VENDOR__/$VENDOR/g > $DEVICEMAKEFILE
