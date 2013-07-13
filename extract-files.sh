@@ -133,6 +133,7 @@ adb pull /system/usr/keylayout/Vendor_057e_Product_0306.kl $DEVICEBASE/system/us
 adb pull /system/usr/keylayout/Vendor_2378_Product_100a.kl $DEVICEBASE/system/usr/keylayout/
 
 # Other files
+mkdir -p $DEVICEBASE/system/bin/
 adb pull /system/bin/nvcpud $DEVICEBASE/system/bin/
 chmod 755 $DEVICEBASE/system/bin/nvcpud
 
