@@ -123,6 +123,7 @@ adb pull /system/cameradata/ $DEVICEBASE/system/cameradata/
 mkdir -p $DEVICEBASE/system/usr/keylayout/
 adb pull /system/usr/keylayout/Bluetooth_00_06_66_42.kl $DEVICEBASE/system/usr/keylayout/
 adb pull /system/usr/keylayout/sec_jack.kl $DEVICEBASE/system/usr/keylayout/
+adb pull /system/usr/keylayout/sec_key.kl $DEVICEBASE/system/usr/keylayout/
 adb pull /system/usr/keylayout/sec_touchscreen.kl $DEVICEBASE/system/usr/keylayout/
 adb pull /system/usr/keylayout/Vendor_04e8_Product_7021.kl $DEVICEBASE/system/usr/keylayout/
 adb pull /system/usr/keylayout/Vendor_044f_Product_d007.kl $DEVICEBASE/system/usr/keylayout/
