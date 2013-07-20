@@ -74,6 +74,7 @@ TARGET_NO_RADIOIMAGE := true
 # Required to build a recovery image of 5MB max
 ifeq ($(TARGET_NO_RECOVERY),false)
     BOARD_CUSTOM_BOOTIMG_MK := device/samsung/i9103/recovery/bootimg.mk
+    TARGET_PREBUILT_RECOVERY_KERNEL := device/samsung/i9103/recovery/kernel-cm10.1.1
 endif
 
 # RIL
