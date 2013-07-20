@@ -73,7 +73,7 @@ TARGET_NO_RADIOIMAGE := true
 
 # Required to build a recovery image of 5MB max
 ifeq ($(TARGET_NO_RECOVERY),false)
-    BOARD_CUSTOM_BOOTIMG_MK := device/samsung/i9103/tools/bootimg.mk
+    BOARD_CUSTOM_BOOTIMG_MK := device/samsung/i9103/recovery/bootimg.mk
 endif
 
 # RIL
@@ -156,7 +156,7 @@ BOARD_CHARGER_RES := $(LOCAL_PATH)/res/charger
 BOARD_SUPPRESS_EMMC_WIPE := true
 
 # Recovery
-TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/recovery.rc
+TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/recovery/init.recovery.n1.rc
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/i9103/recovery/recovery_keys.c
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/i9103/recovery/graphics.c
 

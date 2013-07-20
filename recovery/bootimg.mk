@@ -17,6 +17,8 @@ $(recovery_uncompressed_ramdisk): $(MINIGZIP) $(TARGET_RECOVERY_ROOT_TIMESTAMP)
 	@rm -f $(TARGET_RECOVERY_ROOT_OUT)/lpm.rc
 	@rm -f $(TARGET_RECOVERY_ROOT_OUT)/charger
 	@rm -rf $(TARGET_RECOVERY_ROOT_OUT)/res/images/charger/
+	@rm -f $(TARGET_RECOVERY_ROOT_OUT)/sbin/anicharger
+	cp -f $(LOCAL_PATH)/images/*.png $(TARGET_RECOVERY_ROOT_OUT)/res/images/
 	$(MKBOOTFS) $(TARGET_RECOVERY_ROOT_OUT) > $@
 
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(recovery_ramdisk) $(recovery_kernel) $(INSTALLED_BOOTIMAGE_TARGET)
