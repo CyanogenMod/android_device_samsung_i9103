@@ -179,5 +179,19 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/pwm-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
 
+# SElinux
+ifeq ($(HAVE_SELINUX),true)
+BOARD_SEPOLICY_DIRS := \
+    device/samsung/i9103/selinux
+
+BOARD_SEPOLICY_UNION := \
+    file_contexts \
+    file.te \
+    device.te \
+    domain.te \
+    init.te \
+
+endif
+
 # Inherit from the proprietary version
 -include vendor/samsung/i9103/BoardConfigVendor.mk

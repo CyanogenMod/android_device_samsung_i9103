@@ -29,6 +29,12 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default
 
+# SELinux
+ifeq ($(HAVE_SELINUX),true)
+PRODUCT_PACKAGES += \
+    libselinux libsepol
+endif
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     static_busybox \
