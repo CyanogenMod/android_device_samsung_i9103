@@ -29,5 +29,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 int draw_init(void);
 void draw_uninit(void);
 void draw(int w, int h, unsigned short *fb, int percentage, int error);
+void screen_clear(unsigned short *fb);
 
 #endif

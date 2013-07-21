@@ -297,7 +297,7 @@ void draw_uninit(void)
     draw_initialized = 0;
 }
 
-void draw(int w, int h, unsigned short *color_channel, int percent, int error)
+void draw(int w, int h, unsigned short *fb, int percent, int error)
 {
     struct asset *desired_ic_pane_a, *desired_ic_pane_i;
     static int frame = 0;
@@ -325,10 +325,10 @@ void draw(int w, int h, unsigned short *color_channel, int percent, int error)
         desired_ic_pane_i = &ic_pane_battery_complete_i;
     }
 
-    memset(color_channel, 0, FB_WIDTH * FB_HEIGHT * 2);
-    blit(color_channel, &battery_charge_background,
-                (FB_WIDTH - battery_charge_background.w) / 2,
-                (FB_HEIGHT - battery_charge_background.h) / 2);
+    memset(fb, 0, FB_WIDTH * FB_HEIGHT * 2);
+    blit(fb, &battery_charge_background,
+        (FB_WIDTH - battery_charge_background.w) / 2,
+        (FB_HEIGHT - battery_charge_background.h) / 2);
 
     /* Fill it up! */
     if (!error) {
@@ -340,7 +340,7 @@ void draw(int w, int h, unsigned short *color_channel, int percent, int error)
         int y;
 
         y = bottom - fill_height_pixels;
-        t = color_channel + FB_WIDTH * y + left;
+        t = fb + FB_WIDTH * y + left;
         for (;y<bottom;y++) {
             memcpy(t, battery_img->bits, battery_img->w * 2);
             t += FB_WIDTH;
@@ -350,7 +350,7 @@ void draw(int w, int h, unsigned short *color_channel, int percent, int error)
         if (y < top)
             y = top;
         bottom = y + battery_ani->h;
-        t = color_channel + FB_WIDTH * y + left;
+        t = fb + FB_WIDTH * y + left;
         s = (void *)battery_ani->bits;
         if (percent < 100)
             for (;y<bottom;y++) {
@@ -361,7 +361,7 @@ void draw(int w, int h, unsigned short *color_channel, int percent, int error)
     }
 
     /* Compose battery indicator */
-    ai_blit(color_channel, desired_ic_pane_a, desired_ic_pane_i,
+    ai_blit(fb, desired_ic_pane_a, desired_ic_pane_i,
             (FB_WIDTH - desired_ic_pane_i->w) / 2, (FB_HEIGHT - desired_ic_pane_i->h) / 2);
 
     /* Draw percentage */
@@ -377,12 +377,18 @@ void draw(int w, int h, unsigned short *color_channel, int percent, int error)
         y = (FB_HEIGHT + battery_charge_background.h) / 2;
 
         for (i=0;i<digits;i++)
-            ai_blit(color_channel, battery_numbers_a[s[i]],
+            ai_blit(fb, battery_numbers_a[s[i]],
                     battery_numbers_i[s[i]], x + i*w, y);
 
-        ai_blit(color_channel, &battery_numbers_percentage_a,
+        ai_blit(fb, &battery_numbers_percentage_a,
                 &battery_numbers_percentage_i, x + i*w, y);
     }
 
     frame++;
+}
+
+void screen_clear(unsigned short *fb)
+{
+    /* fill with some dark gray */
+    draw(FB_WIDTH, FB_HEIGHT, fb, 0, 1);
 }

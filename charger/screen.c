@@ -64,9 +64,6 @@ static int vt_set_mode(int graphics)
 
 static int fb_open(struct FB *fb)
 {
-    /* Switch to graphics mode */
-    vt_set_mode(1);
-
     fb->fd = open("/dev/graphics/fb0", O_RDWR);
     if (fb->fd < 0)
     {
@@ -91,6 +88,10 @@ static int fb_open(struct FB *fb)
         ALOGE("fb mapping failed!\n");
         goto err1;
     }
+
+    /* Switch to graphics mode */
+    vt_set_mode(1);
+
     return 0;
 
 err1:
@@ -113,6 +114,7 @@ int screen_init(void)
         goto err1;
     if (fb_open(fb))
         goto err2;
+
     return 0;
 
 err2:
@@ -154,6 +156,7 @@ int screen_update(int percentage, int error)
 
 static int show_565rle(const char *fn)
 {
+#if USE_RLE_LOGO
     struct stat s;
     unsigned short *data, *bits, *ptr;
     unsigned count, max;
@@ -202,11 +205,13 @@ static int show_565rle(const char *fn)
 err2:
     close(fd);
 err1:
+#endif
     return -1;
 }
 
 void screen_uninit(void)
 {
+    screen_clear(fb->bits);
     show_565rle("/initlogo.rle");
     fb_close(fb);
     draw_uninit();
