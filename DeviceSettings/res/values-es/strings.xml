@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The CyanogenMod Project
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,14 +15,21 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Ajustes avanzados</string>
+    <string name="defaults_button">Restablecer</string>
     <string name="category_screen_title">Pantalla</string>
     <string name="screen_colors_title">Colores</string>
+    <string name="cabc_title_head">Brillo adaptativo</string>
+    <string name="cabc_summary_head">Activar el control de brillo adaptado al contenido</string>
     <string name="mdnie_scenario_title_head">Escenario</string>
     <string name="mdnie_scenario_summary_head">Establecer escenario mDNIe</string>
     <string name="mdnie_mode_title_head">Modo</string>
     <string name="mdnie_mode_summary_head">Establecer modo mDNIe</string>
+    <string name="mdnie_negative_title_head">Modo Negativo</string>
+    <string name="mdnie_negative_summary_head">Habilitar/deshabilitar colores invertidos</string>
     <string name="mdnie_outdoor_title_head">Modo al aire libre</string>
     <string name="mdnie_outdoor_summary_head">Habilitar/deshabilitar modo al aire libre</string>
+    <string name="panel_gamma_title_head">Gamma</string>
+    <string name="panel_gamma_summary_head">Establece el valor Gamma de la pantalla</string>
     <string name="touchscreen_subcat_title">Pantalla táctil</string>
     <string name="touchscreen_sensitivity_title_head">Sensibilidad táctil</string>
     <string name="touchscreen_sensitivity_summary_head">Establecer la sensibilidad del panel táctil</string>
@@ -33,14 +40,17 @@
     <string name="touchkey_timeout_summary_head">Tiempo tras pulsar una tecla antes de apagar la retroiluminación</string>
     <string name="category_sensors_title">Sensores</string>
     <string name="accelerometer_subcat_title">Acelerómetro</string>
+    <string name="use_accelerometer_calibration_title_head">Usar datos de calibración</string>
+    <string name="use_accelerometer_calibration_summary_head">Usar los valores de calibración del acelerómetro. ¡Realizar una calibración después de habilitar esta funcionalidad!</string>
     <string name="calibrate_accelerometer_title_head">Calibrar</string>
     <string name="calibrate_accelerometer_summary_head">Poner el teléfono sobre una superficie plana, y presionar este menú para calibrar de nuevo</string>
     <string name="accelerometer_dialog_head">Calibración realizada</string>
     <string name="accelerometer_dialog_message">El sensor ha sido calibrado satisfactoriamente</string>
     <string name="category_haptic_title">Háptica</string>
-    <string name="vibrator_subcat_title">Vibración</string>
-    <string name="vibrator_intensity_title_head">Intensidad de vibración</string>
-    <string name="vibrator_intensity_summary_head">Establecer la intensidad de vibración</string>
+    <string name="vibrator_title">Vibración</string>
+    <string name="vibrator_tuning_title">Intensidad de vibración</string>
+    <string name="vibrator_tuning_summary_head">Establecer la intensidad de vibración</string>
+    <string name="vibrator_warning">No son recomendables valores mayores de %1$d</string>
     <string name="category_radio_title">Radio</string>
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">Habilitar HSDPA/HSUPA</string>

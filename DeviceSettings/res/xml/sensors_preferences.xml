@@ -2,6 +2,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory 
                 android:title="@string/accelerometer_subcat_title">
+    <!-- Use sensor calibration -->
+    <CheckBoxPreference
+                android:key="use_accelerometer_calibration"
+                android:title="@string/use_accelerometer_calibration_title_head"
+                android:summary="@string/use_accelerometer_calibration_summary_head"
+                />
 
     <!-- Do accelerometer calibration -->
     <Preference
@@ -9,7 +15,6 @@
                 android:title="@string/calibrate_accelerometer_title_head"
                 android:summary="@string/calibrate_accelerometer_summary_head"
                 />
-
     </PreferenceCategory>
 </PreferenceScreen>
 

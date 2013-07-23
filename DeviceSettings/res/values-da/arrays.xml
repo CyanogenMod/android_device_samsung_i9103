@@ -18,29 +18,29 @@
         <item>CyanogenMod (Standard)</item>
         <item>UI</item>
         <item>Video</item>
-        <item>Video warm</item>
-        <item>Video kalt</item>
+        <item>Varm Video</item>
+        <item>Kold Video</item>
         <item>Kamera</item>
         <item>Navigation</item>
-        <item>Gallerie</item>
+        <item>Galleri</item>
         <item>VT</item>
     </string-array>
 
-    <string-array name="mdnie_mode_entries">
-        <item>Dynamisch</item>
+   <string-array name="mdnie_mode_entries">
+        <item>Dynamisk</item>
         <item>Standard (Standard)</item>
-        <item>Natürlich</item>
+        <item>Naturlig</item>
         <item>Film</item>
     </string-array>
 
     <string-array name="mdnie_negative_entries">
         <item>Normal</item>
-        <item>Invertiert</item>
+        <item>Negativ</item>
     </string-array>
 
     <string-array name="mdnie_outdoor_entries">
-        <item>Deaktiviert</item>
-        <item>Aktiviert</item>
+        <item>Fra (Standard)</item>
+        <item>Til</item>
     </string-array>
 
     <string-array name="panel_gamma_entries">
@@ -58,18 +58,18 @@
     </string-array>
 
     <string-array name="hspa_entries">
-        <item>Nur UMTS</item>
-        <item>Nur HSDPA</item>
+        <item>Kun UMTS</item>
+        <item>Kun HSDPA</item>
         <item>HSDPA + HSUPA</item>
     </string-array>
 
     <string-array name="touchkey_timeout_entries">
-            <item>Niemals</item>
-            <item>1 Sekunde</item>
-            <item>2 Sekunden</item>
-            <item>3 Sekunden (Standard)</item>
-            <item>4 Sekunden</item>
-            <item>5 Sekunden</item>
-            <item>6 Sekunden</item>
+            <item>Aldrig</item>
+            <item>1 sekund</item>
+            <item>2 sekunder</item>
+            <item>3 sekunder (Standard)</item>
+            <item>4 sekunder</item>
+            <item>5 sekunder</item>
+            <item>6 sekunder</item>
     </string-array>
 </resources>

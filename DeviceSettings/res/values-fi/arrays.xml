@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The CyanogenMod Project
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,7 +15,8 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="mdnie_scenario_entries">
-        <item>Käyttöliittymä (Oletus)</item>
+        <item>CyanogenMod (Oletus)</item>
+        <item>Käyttöliittymä</item>
         <item>Video</item>
         <item>Video(Lämmin)</item>
         <item>Video(Kylmä)</item>
@@ -26,14 +27,25 @@
     </string-array>
 
     <string-array name="mdnie_mode_entries">
-        <item>Standardi (Oletus)</item>
         <item>Dynaaminen</item>
+        <item>Standardi (Oletus)</item>
+        <item>Luonnollinen</item>
         <item>Elokuva</item>
+    </string-array>
+
+    <string-array name="mdnie_negative_entries">
+        <item>Normaali</item>
+        <item>Käänteinen</item>
     </string-array>
 
     <string-array name="mdnie_outdoor_entries">
         <item>Pois päältä (Oletus)</item>
         <item>Päällä</item>
+    </string-array>
+
+    <string-array name="panel_gamma_entries">
+        <item>2.2 (Oletus)</item>
+        <item>1.9</item>
     </string-array>
 
     <string-array name="touchscreen_sensitivity_entries">
@@ -45,14 +57,6 @@
         <item>100</item>
     </string-array>
 
-    <string-array name="vibrator_intensity_entries">
-        <item>0%</item>
-        <item>25%</item>
-        <item>50% (Oletus)</item>
-        <item>75%</item>
-        <item>100%</item>
-    </string-array>
-
     <string-array name="hspa_entries">
         <item>Vain UMTS</item>
         <item>Vain HSDPA</item>
@@ -60,12 +64,12 @@
     </string-array>
 
     <string-array name="touchkey_timeout_entries">
-        <item>Never</item>
-        <item>1 second</item>
-        <item>2 seconds</item>
-        <item>3 seconds (Oletus)</item>
-        <item>4 seconds</item>
-        <item>5 seconds</item>
-        <item>6 seconds</item>
+            <item>Never</item>
+            <item>1 second</item>
+            <item>2 seconds</item>
+            <item>3 seconds (Oletus)</item>
+            <item>4 seconds</item>
+            <item>5 seconds</item>
+            <item>6 seconds</item>
     </string-array>
 </resources>

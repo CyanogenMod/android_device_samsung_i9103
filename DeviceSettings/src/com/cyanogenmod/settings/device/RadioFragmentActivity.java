@@ -33,7 +33,7 @@ import com.cyanogenmod.settings.device.R;
 public class RadioFragmentActivity extends PreferenceFragment {
 
     private static final String PREF_ENABLED = "1";
-    private static final String TAG = "GalaxyRSettings_Radio";
+    private static final String TAG = "DeviceSettings_Radio";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

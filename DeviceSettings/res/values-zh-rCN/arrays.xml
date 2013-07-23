@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The CyanogenMod Project
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,25 +15,37 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="mdnie_scenario_entries">
-        <item>界面 (默认)</item>
+        <item>CyanogenMod (默认)</item>
+        <item>界面</item>
         <item>影片</item>
         <item>影片 (温)</item>
         <item>影片 (冷)</item>
-        <item>照相</item>
+        <item>相机</item>
         <item>导航</item>
         <item>图库</item>
         <item>VT</item>
     </string-array>
 
     <string-array name="mdnie_mode_entries">
-        <item>标准 (默认)</item>
         <item>动态</item>
+        <item>标准 (默认)</item>
+        <item>自然</item>
         <item>电影</item>
+    </string-array>
+
+    <string-array name="mdnie_negative_entries">
+        <item>正常</item>
+        <item>反色</item>
     </string-array>
 
     <string-array name="mdnie_outdoor_entries">
         <item>禁用 (默认)</item>
         <item>启用</item>
+    </string-array>
+
+    <string-array name="panel_gamma_entries">
+        <item>2.2 (默认)</item>
+        <item>1.9</item>
     </string-array>
 
     <string-array name="touchscreen_sensitivity_entries">
@@ -43,14 +55,6 @@
         <item>50 (默认)</item>
         <item>70</item>
         <item>100</item>
-    </string-array>
-
-    <string-array name="vibrator_intensity_entries">
-        <item>0%</item>
-        <item>25%</item>
-        <item>50% (默认)</item>
-        <item>75%</item>
-        <item>100%</item>
     </string-array>
 
     <string-array name="hspa_entries">

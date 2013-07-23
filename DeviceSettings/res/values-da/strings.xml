@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Advanced settings</string>
+
+    <string name="category_screen_title">Skærm</string>
+    <string name="screen_colors_title">Farver</string>
+    <string name="mdnie_scenario_title_head">Scenarie</string>
+    <string name="mdnie_scenario_summary_head">Vælg mDNIe-scenarie</string>
+    <string name="mdnie_mode_title_head">Tilstand</string>
+    <string name="mdnie_mode_summary_head">Vælg mDNIe-tilstand</string>
+    <string name="mdnie_negative_title_head">Negativ tilstand</string>
+    <string name="mdnie_negative_summary_head">Slå negative farver til/fra</string>
+    <string name="mdnie_outdoor_title_head">Udendørs tilstand</string>
+    <string name="mdnie_outdoor_summary_head">Slå udendørs tilstand til/fra</string>
+    <string name="panel_gamma_title_head">Gamma</string>
+    <string name="panel_gamma_summary_head">Indstil gamma</string>
+
+    <string name="touchscreen_subcat_title">Touchscreen</string>
+    <string name="touchscreen_sensitivity_title_head">Følsomhed</string>
+    <string name="touchscreen_sensitivity_summary_head">Indstil skærmens følsomhed</string>
+
+    <string name="touchkey_subcat_title">Berøringstaster</string>
+    <string name="touchkey_light_title_head">Brug baggrundslys</string>
+    <string name="touchkey_light_summary_head">Lys tasterne op når skærmen er tændt</string>
+    <string name="touchkey_timeout_title_head">Timeout</string>
+    <string name="touchkey_timeout_summary_head">Tid før lyset slukker</string>
+
+    <string name="category_sensors_title">Sensorer</string>
+    <string name="accelerometer_subcat_title">Accelerometer</string>
+    <string name="use_accelerometer_calibration_title_head">Brug data fra kalibrering</string>
+    <string name="use_accelerometer_calibration_summary_head">Brug værdier fra kalibrering. Udfør kalibrering efter du vælger denne!</string>
+    <string name="calibrate_accelerometer_title_head">Kalibrér</string>
+    <string name="calibrate_accelerometer_summary_head">Læg din telefon på en vandret overflade og tryk her for kalibrering</string>
+    <string name="accelerometer_dialog_head">Kalibrering fuldført</string>
+    <string name="accelerometer_dialog_message">Accelerometeret er kalibreret.</string>
+
+    <string name="category_radio_title">Radio</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Slå HSDPA/HSUPA til/fra</string>
+
+    <string name="category_dock_title">Dock</string>
+    <string name="dockaudio_subcat_title">Lyd</string>
+    <string name="use_dock_audio_title_head">Brug Dockens USB lyd</string>
+    <string name="use_dock_audio_summary_head">Spil lyden gennem dockens højttaler</string>
+</resources>

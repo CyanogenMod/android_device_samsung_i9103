@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The CyanogenMod Project
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,24 +14,35 @@
      limitations under the License.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string-array name="mdnie_scenario_entries">
-      <item>IU (Padrão)</item>
-      <item>Vídeo</item>
-      <item>Vídeo Quente</item>
-      <item>Vídeo Frio</item>
-      <item>Câmera</item>
-      <item>Navegação</item>
-      <item>Galeria</item>
-      <item>VT</item>
-  </string-array>
-  <string-array name="mdnie_mode_entries">
-      <item>Padrão</item>
-      <item>Dinâmico</item>
-      <item>Filme</item>
+    <string-array name="mdnie_scenario_entries">
+        <item>CyanogenMod (Padrão)</item>
+        <item>IU</item>
+        <item>Vídeo</item>
+        <item>Vídeo Quente</item>
+        <item>Vídeo Frio</item>
+        <item>Câmera</item>
+        <item>Navegação</item>
+        <item>Galeria</item>
+        <item>VT</item>
+    </string-array>
+
+    <string-array name="mdnie_mode_entries">
+        <item>Dinâmico</item>
+        <item>Padrão (Padrão)</item>
+        <item>Natural</item>
+        <item>Filme</item>
+    </string-array>
+  <string-array name="mdnie_negative_entries">
+      <item>Normal</item>
+      <item>Invertido</item>
   </string-array>
   <string-array name="mdnie_outdoor_entries">
       <item>Desligado (Padrão)</item>
       <item>Ligado</item>
+  </string-array>
+  <string-array name="panel_gamma_entries">
+      <item>2.2 (Padrão)</item>
+      <item>1.9</item>
   </string-array>
   <string-array name="touchscreen_sensitivity_entries">
       <item>10</item>
@@ -40,13 +51,6 @@
       <item>50 (Padrão)</item>
       <item>70</item>
       <item>100</item>
-  </string-array>
-  <string-array name="vibrator_intensity_entries">
-      <item>0%</item>
-      <item>25%</item>
-      <item>50% (Padrão)</item>
-      <item>75%</item>
-      <item>100%</item>
   </string-array>
   <string-array name="hspa_entries">
       <item>Somente UMTS</item>

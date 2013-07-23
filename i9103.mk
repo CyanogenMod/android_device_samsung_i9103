@@ -7,7 +7,7 @@
 LOCAL_PATH := device/samsung/i9103
 
 PRODUCT_PACKAGES += \
-    GalaxyRSettings \
+    DeviceSettings \
     libnetcmdiface \
     com.android.future.usb.accessory \
     SamsungServiceMode \

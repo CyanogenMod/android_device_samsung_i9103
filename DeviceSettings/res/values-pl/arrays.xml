@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The CyanogenMod Project
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,7 +15,8 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="mdnie_scenario_entries">
-        <item>UI (Domyślnie)</item>
+        <item>CyanogenMod (domyślnie)</item>
+        <item>UI</item>
         <item>Wideo</item>
         <item>Ciepły film</item>
         <item>Zimny film</item>
@@ -26,31 +27,34 @@
     </string-array>
 
     <string-array name="mdnie_mode_entries">
-        <item>Standardowo (Domyślnie)</item>
         <item>Dynamicznie</item>
+        <item>Standardowo (domyślnie)</item>
+        <item>Naturalnie</item>
         <item>Film</item>
     </string-array>
 
+    <string-array name="mdnie_negative_entries">
+        <item>Normalnie</item>
+        <item>Odwrócony</item>
+    </string-array>
+
     <string-array name="mdnie_outdoor_entries">
-        <item>Wyłączony (Domyślnie)</item>
+        <item>Wyłączony (domyślnie)</item>
         <item>Włączony</item>
+    </string-array>
+
+    <string-array name="panel_gamma_entries">
+        <item>2.2 (domyślnie)</item>
+        <item>1.9</item>
     </string-array>
 
     <string-array name="touchscreen_sensitivity_entries">
         <item>10</item>
         <item>20</item>
         <item>30</item>
-        <item>50 (Domyślnie)</item>
+        <item>50 (domyślnie)</item>
         <item>70</item>
         <item>100</item>
-    </string-array>
-
-    <string-array name="vibrator_intensity_entries">
-        <item>0%</item>
-        <item>25%</item>
-        <item>50% (Domyślnie)</item>
-        <item>75%</item>
-        <item>100%</item>
     </string-array>
 
    <string-array name="hspa_entries">
@@ -63,7 +67,7 @@
         <item>Nigdy</item>
         <item>1 sekunda</item>
         <item>2 sekundy</item>
-        <item>3 sekundy (Domyślnie)</item>
+        <item>3 sekundy (domyślnie)</item>
         <item>4 sekundy</item>
         <item>5 sekund</item>
         <item>6 sekund</item>
