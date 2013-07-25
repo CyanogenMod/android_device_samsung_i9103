@@ -228,6 +228,16 @@ typedef uint16_t AGpsStatusValue;
  */
 #define AGPS_RIL_INTERFACE      "agps_ril"
 
+/**
+ * The GPS chipset can use Psc for AGPS.
+ */
+#define AGPS_USE_PSC
+
+/**
+ * Constellation type field
+ */
+#undef SAMSUNG_EXTENDED_GPSSVINFO
+
 /** Represents a location. */
 typedef struct {
     /** set to sizeof(GpsLocation) */
@@ -270,6 +280,7 @@ typedef struct {
     float   elevation;
     /** Azimuth of SV in degrees. */
     float   azimuth;
+#ifdef SAMSUNG_EXTENDED_GPSSVINFO
     /** Unknown field in Samsung I9100 libgps
         May be an indicator for constellation type
         (GPS, GLONASS, Galileo)?
@@ -277,6 +288,7 @@ typedef struct {
         SGH-I717, SGH-I727 but this needs confirmation.
     */
     int unknown_samsung_field;
+#endif
 } GpsSvInfo;
 
 /** Represents SV status. */
@@ -314,6 +326,9 @@ typedef struct {
     uint16_t mcc;
     uint16_t mnc;
     uint16_t lac;
+#ifdef AGPS_USE_PSC
+    uint16_t psc;
+#endif
     uint32_t cid;
 } AGpsRefLocationCellID;
 
