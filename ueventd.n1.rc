@@ -26,7 +26,8 @@
 /dev/akm8975	0660	system	system
 
 # for GPS
-/dev/ttyHS0	0660	root	system
+/dev/ttyHS0	0664	radio	system
+/sys/devices/virtual/sec/gps/GPS* value 0664 radio system
 
 # for FM Radio
 /dev/fmradio	0660	system	audio

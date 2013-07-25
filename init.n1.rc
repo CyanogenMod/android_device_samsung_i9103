@@ -170,9 +170,6 @@ on boot
     chmod 666 /sys/class/input/input2/device/rate
     chmod 666 /sys/class/input/input2/device/autosleep
 
-# BB UART settings
-    chown radio system /dev/ttyHS0
-
 # BB remote file system
     mkdir /data/rfs
     mkdir /data/rfs/data
@@ -204,18 +201,21 @@ on boot
 #    write /sys/block/mmcblk0/queue/read_ahead_kb 2048
 #    write /sys/block/mmcblk1/queue/read_ahead_kb 2048
 
+# mute gc alloc/free in logcat
+    setprop dalvik.vm.debug.alloc 0
+
 # GPS
-    chown root system /dev/ttyHS0
+    chown radio system /dev/ttyHS0
     chmod 0664 /dev/ttyHS0
 
-    mkdir /data/gps 0771 system system
-    chown system system /data/gps
+    mkdir /data/gps 0777 radio system
+    chown radio system /data/gps
 
     chmod 0664 /sys/class/sec/gps/GPS_PWR_EN/value
-    chown root system /sys/class/sec/gps/GPS_PWR_EN/value
+    chown radio system /sys/class/sec/gps/GPS_PWR_EN/value
 
     chmod 0664 /sys/class/sec/gps/GPS_nRST/value
-    chown root system /sys/class/sec/gps/GPS_nRST/value
+    chown radio system /sys/class/sec/gps/GPS_nRST/value
 
 # ko files for FM Radio
     insmod /system/lib/modules/Si4709_driver.ko
