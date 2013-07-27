@@ -19,6 +19,7 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/i9103/include
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
+TARGET_CPU_VARIANT := cortex-a9
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a
 TARGET_ARCH_VARIANT_CPU := cortex-a9
@@ -65,6 +66,7 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 
 TARGET_KERNEL_SOURCE := kernel/samsung/n1
 TARGET_KERNEL_CONFIG := cyanogenmod_i9103_defconfig
+# TARGET_KERNEL_SELINUX_CONFIG := selinux_config
 
 TARGET_NO_KERNEL := false
 TARGET_NO_RECOVERY := false
@@ -74,7 +76,7 @@ TARGET_NO_RADIOIMAGE := true
 # Required to build a recovery image of 5MB max
 ifeq ($(TARGET_NO_RECOVERY),false)
     BOARD_CUSTOM_BOOTIMG_MK := device/samsung/i9103/recovery/bootimg.mk
-    TARGET_PREBUILT_RECOVERY_KERNEL := device/samsung/i9103/recovery/kernel-cm10.1.1
+    TARGET_PREBUILT_RECOVERY_KERNEL := device/samsung/i9103/recovery/kernel-selinux
 endif
 
 # RIL
