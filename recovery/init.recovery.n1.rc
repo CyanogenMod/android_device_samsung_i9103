@@ -35,6 +35,9 @@ on boot
     hostname localhost
     domainname localdomain
 
+    # reboot mode for bootloader option
+    setprop ro.bootloader.mode download
+
     class_start default
 
 service ueventd /sbin/ueventd
