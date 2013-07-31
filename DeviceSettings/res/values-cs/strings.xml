@@ -21,7 +21,7 @@
     <string name="mdnie_scenario_title_head">Scénář</string>
     <string name="mdnie_scenario_summary_head">Nastavit scénář pro mDNIe</string>
     <string name="mdnie_mode_title_head">Režim</string>
-    <string name="mdnie_mode_summary_head">Nastavi režim mDNIe</string>
+    <string name="mdnie_mode_summary_head">Nastavit režim mDNIe</string>
     <string name="mdnie_outdoor_title_head">Venkovní režim</string>
     <string name="mdnie_outdoor_summary_head">Použít venkovní režim</string>
 
