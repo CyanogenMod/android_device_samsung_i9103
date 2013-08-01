@@ -1,0 +1,5 @@
+type firmware_camera, file_type;
+
+allow sysfs_devices_tegradc sysfs:filesystem associate;
+allow sysfs_devices_system_cpu sysfs:filesystem associate;
+
